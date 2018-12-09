@@ -19,6 +19,7 @@ router.get('/photos', ctrlOstalo.photos);
 router.get('/homepage', ctrlOstalo.homepage);
 router.post('/comments', ctrlOstalo.comments);
 router.get('/editprofile', ctrlOstalo.editprofile);
+router.get('/signup', ctrlOstalo.signup);
 
 
 module.exports = router;
