@@ -22,7 +22,11 @@ module.exports.photos = function(req, res) {
 module.exports.homepage = function(req, res) {
   res.render('homepage', { title: 'Prikazi profil' });
 };
-/* Vrni stran Photos */
+/* Vrni stran Editprofile */
+module.exports.editprofile = function(req, res) {
+  res.render('editprofile', { title: 'Uredi profil' });
+};
+/* Vrni stran Comments */
 module.exports.comments = function(req, res) { //26 272 lecture udemy
   //res.render('comments', { title: 'Prikazi komentarje' });
   var novKomentar=req.body.vsebinaKomentarja
