@@ -18,6 +18,7 @@ router.get('/groups', ctrlOstalo.groups);
 router.get('/photos', ctrlOstalo.photos);
 router.get('/homepage', ctrlOstalo.homepage);
 router.post('/comments', ctrlOstalo.comments);
+router.get('/editprofile', ctrlOstalo.editprofile);
 
 
 module.exports = router;
