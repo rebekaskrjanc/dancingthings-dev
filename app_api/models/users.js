@@ -1,6 +1,5 @@
 'use strict';
 var mongoose = require('mongoose');
-var userEnums = require('./enums/users-enums');
 
 var commentSchema = new mongoose.Schema({
   author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
