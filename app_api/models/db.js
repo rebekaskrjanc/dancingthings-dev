@@ -51,3 +51,4 @@ function getDbUri() {
 
 /* Register mongoose schemas */
 require('./users');
+require('./posts');
