@@ -1,0 +1,103 @@
+extends layout
+
+block content
+  section
+    .container
+        .row
+          .col-md-8
+            h1.page-header Photos
+            ul.photos.gallery-parent
+              li
+                a(href='images/be298922f82a505668690e7fbf10d9dd.jpg', data-title='Image One', data-footer='This is image 1', data-toggle='lightbox', data-gallery='mygallery', data-parent='.gallery-parent', data-hover='tooltip', data-placement='top', title='This is image one')
+                  img.img-thumbnail(src='images/be298922f82a505668690e7fbf10d9dd.jpg')
+              li
+                a(href='images/c6bc5645349ab8766059c6fd48f254b5.jpg', data-title='Image Two', data-footer='This is image 2', data-toggle='lightbox', data-gallery='mygallery', data-parent='.gallery-parent', data-hover='tooltip', data-placement='top', title='This is image two')
+                  img.img-thumbnail(src='images/c6bc5645349ab8766059c6fd48f254b5.jpg')
+              li
+                a(href='images/aa457df731ec87b4d702ec593953d84a.jpg', data-title='Image Three', data-footer='This is image 3', data-toggle='lightbox', data-gallery='mygallery', data-parent='.gallery-parent', data-hover='tooltip', data-placement='top', title='This is image three')
+                  img.img-thumbnail(src='images/aa457df731ec87b4d702ec593953d84a.jpg')
+              li
+                a(href='images/fd353834f32b0d01754f0c6097d40795.jpg', data-title='Image Four', data-footer='This is image 4', data-toggle='lightbox', data-gallery='mygallery', data-parent='.gallery-parent', data-hover='tooltip', data-placement='top', title='This is image four')
+                  img.img-thumbnail(src='images/fd353834f32b0d01754f0c6097d40795.jpg')
+              li
+                a(href='images/3eb3a12e720e3bea5ab58f96e19ee84a.jpg', data-title='Image Five', data-footer='This is image 5', data-toggle='lightbox', data-gallery='mygallery', data-parent='.gallery-parent', data-hover='tooltip', data-placement='top', title='This is image five')
+                  img.img-thumbnail(src='images/3eb3a12e720e3bea5ab58f96e19ee84a.jpg')
+              li
+                a(href='images/cd70bd431ec9d49b14a6fb7df4a688bd.jpg', data-title='Image Six', data-footer='This is image 6', data-toggle='lightbox', data-gallery='mygallery', data-parent='.gallery-parent', data-hover='tooltip', data-placement='top', title='This is image six')
+                  img.img-thumbnail(src='images/cd70bd431ec9d49b14a6fb7df4a688bd.jpg')
+          // col-md-8 end
+          .col-md-4
+            .panel.panel-default.friends
+              .panel-heading
+                h3.panel-title My Friends
+              .panel-body
+                ul
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                .clearfix
+                a.btn.btn-primary(href='#') View All Friends
+            .panel.panel-default.groups
+              .panel-heading
+                h3.panel-title Latest Groups
+              .panel-body
+                .group-item
+                  img(src='images/group.png')
+                  h4
+                    a(href='#') Sample Group One
+                  p This is a Dancing Things social network sample group
+                .clearfix
+                .group-item
+                  img(src='images/group.png')
+                  h4
+                    a(href='#') Sample Group One
+                  p This is a Dancing Things social network sample group
+                .clearfix
+                .group-item
+                  img(src='images/group.png')
+                  h4
+                    a(href='#') Sample Group One
+                  p This is a Dancing Things social network sample group
+                .clearfix
+                a.btn.btn-primary(href='#') View All Groups
+    script.
+      $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+      });
+      $(function () {
+      $('[data-hover="tooltip"]').tooltip()
+      })

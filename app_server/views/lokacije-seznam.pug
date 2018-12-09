@@ -1,0 +1,28 @@
+extends layout
+
+include _include/skupneHTMLfunkcije.pug
+
+block content
+  #banner.page-header
+    .row
+      .col-lg-12
+        h1= glavaStrani.naslov
+          small &nbsp;#{glavaStrani.podnaslov}
+  .row
+    .col-xs-12.col-sm-8
+      .row.list-group
+        each lokacija in lokacije
+          .col-xs-12.list-group-item
+            h4
+              a(href="/lokacija")= lokacija.naziv
+              small &nbsp;
+                +prikaziOceno(lokacija.ocena)
+              span.badge.pull-right.badge-default= lokacija.razdalja
+            p.address= lokacija.naslov
+            p
+              each lastnost in lokacija.lastnosti
+                span.label.label-warning= lastnost
+                | &nbsp;
+    .col-xs-12.col-sm-4
+      p.lead Iščete lokacijo za kratkočasenje? EduGeoCache vam pomaga pri iskanju zanimivih lokacij v bližini. Mogoče imate kakšne posebne želje? Naj vam EduGeoCache pomaga pri iskanju bližnjih zanimivih lokacij.
+      

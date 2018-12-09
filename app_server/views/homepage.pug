@@ -1,0 +1,220 @@
+extends layout
+
+block content
+  section
+      .container
+        .row
+          .col-md-8
+            .panel.panel-default
+              .panel-heading
+                h3.panel-title Wall
+              .panel-body
+                form
+                  .form-group
+                    textarea.form-control(placeholder='Write on the wall')
+                  button.btn.btn-default(type='submit') Submit
+                  .pull-right
+                    .btn-group
+                      button.btn.btn-default(type='button')
+                        i.fas.fa-pencil-alt
+                        |  Text
+                      button.btn.btn-default(type='button')
+                        i.fas.fa-images
+                        |  Image
+                      button.btn.btn-default(type='button')
+                        i.fas.fa-video
+                        |  Video
+            .panel.panel-default.post
+              .panel-body
+                .row
+                  .col-sm-2
+                    a.post-avatar.thumbnail(href='images/user-default.jpg')
+                      img(src='images/user-default.jpg')
+                      .text-center User1
+                    .likes.text-center 7 Likes
+                  // col-sm-2 end
+                  .col-sm-10
+                    .bubble
+                      .pointer
+                        p
+                          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt eget ante eget feugiat. Praesent adipiscing tortor eu tincidunt tempus. Sed convallis est in ante sodales, sit amet consectetur leo commodo.
+                      .pointer-border
+                    // bubble end
+                    p.post-actions
+                      a(href='#') Like
+                      |  - 
+                      a(href='#') Comment
+                      |  - 
+                      a(href='#') Share
+                      |  - 
+                      a(href='#') Follow
+                    .comment-form
+                      form.form-inline(action='/comments', method='POST')
+                        .form-group
+                          input#exampleInputName2.form-control(type='text', name="vsebinaKomentarja" placeholder='Enter Comment')
+                        button.btn.btn-default(type='submit') Add
+                    // comment form end
+                    .clearfix
+                    .comments
+                      .comment
+                        a.comment-avatar.pull-left(href='#')
+                          img(src='images/user-default.jpg')
+                        .comment-text
+                          p Sed convallis est in ante sodales, sit amet consectetur leo commodo.
+                      .clearfix
+                      .comment
+                        a.comment-avatar.pull-left(href='#')
+                          img(src='images/user-default.jpg')
+                        .comment-text
+                          p Sed convallis est in ante sodales, sit amet consectetur leo commodo.
+                      .clearfix
+            .panel.panel-default.post
+              .panel-body
+                .row
+                  .col-sm-2
+                    a.post-avatar.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                      .text-center DevUser2
+                    .likes.text-center 7 Likes
+                  // col-sm-2 end
+                  .col-sm-10
+                    .bubble
+                      .pointer
+                        p
+                          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt eget ante eget feugiat. Praesent adipiscing tortor eu.
+                      .pointer-border
+                    // bubble end
+                    p.post-actions
+                      a(href='#') Comment
+                      |  - 
+                      a(href='#') Like
+                      |  - 
+                      a(href='#') Follow
+                      |  - 
+                      a(href='#') Share
+                    .comment-form
+                      form.form-inline
+                        .form-group
+                          input#exampleInputName2.form-control(type='text', placeholder='Enter Comment')
+                        button.btn.btn-default(type='submit') Add
+                    // comment form end
+                    .clearfix
+                    .comments
+                      .comment
+                        a.comment-avatar.pull-left(href='#')
+                          img(src='images/user-default.jpg')
+                        .comment-text
+                          p Sed convallis est in ante sodales, sit amet consectetur leo commodo.
+                      .clearfix
+            .panel.panel-default.post
+              .panel-body
+                .row
+                  .col-sm-2
+                    a.post-avatar.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                      .text-center DevUser3
+                    .likes.text-center 2 Likes
+                  // col-sm-2 end
+                  .col-sm-10
+                    .bubble
+                      .pointer
+                        p
+                          | Adipiscing elit. In tincidunt eget ante eget feugiat. Praesent adipiscing tortor eu tincidunt tempus. Sed convallis est in ante sodales, sit amet consectetur leo commodo.
+                      .pointer-border
+                    // bubble end
+                    p.post-actions
+                      a(href='#') Comment
+                      |  - 
+                      a(href='#') Like
+                      |  - 
+                      a(href='#') Follow
+                      |  - 
+                      a(href='#') Share
+                    .comment-form
+                      form.form-inline
+                        .form-group
+                          input#exampleInputName2.form-control(type='text', placeholder='Enter Comment')
+                        button.btn.btn-default(type='submit') Add
+                    // comment form end
+                    .clearfix
+                    .comments
+                      .comment
+                        a.comment-avatar.pull-left(href='#')
+                          img(src='images/user-default.jpg')
+                        .comment-text
+                          p Sed convallis est in ante sodales, sit amet consectetur leo commodo.
+                      .clearfix
+                      .comment
+                        a.comment-avatar.pull-left(href='#')
+                          img(src='images/user-default.jpg')
+                        .comment-text
+                          p Sed convallis est in ante sodales, sit amet consectetur leo commodo.
+                      .clearfix
+          // col-md-8 end
+          .col-md-4
+            .panel.panel-default.friends
+              .panel-heading
+                h3.panel-title My Friends
+              .panel-body
+                ul
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                  li
+                    a.thumbnail(href='profile.html')
+                      img(src='images/user-default.jpg')
+                .clearfix
+                a.btn.btn-primary(href='#') View All Friends
+            .panel.panel-default.groups
+              .panel-heading
+                h3.panel-title Latest Groups
+              .panel-body
+                .group-item
+                  img(src='images/group.png')
+                  h4
+                    a(href='#') Sample Group One
+                  p This is a Dancing Things social network sample group
+                .clearfix
+                .group-item
+                  img(src='images/group.png')
+                  h4
+                    a(href='#') Sample Group One
+                  p This is a Dancing Things social network sample group
+                .clearfix
+                .group-item
+                  img(src='images/group.png')
+                  h4
+                    a(href='#') Sample Group One
+                  p This is a Dancing Things social network sample group
+                .clearfix
+                a.btn.btn-primary(href='#') View All Groups
