@@ -19,6 +19,30 @@ module.exports.getUsers = function(req, res) {
     });
 };
 
+module.exports.getUser = function(req, res){
+  if(req.params && req.params.userId) {
+    User
+      .findById(req.params.userId)
+      .exec(function(error, user){
+        if(!user) {
+          vrniJsonOdgovor(res, 404,  {
+            "sporočilo": 
+              "Ne najdem userja s podanim enoličnim identifikatorjem idLokacije."
+          });
+          return;
+        } else if (error) {
+          vrniJsonOdgovor(res, 500, error);
+          return;
+        }
+        vrniJsonOdgovor(res, 200, user);
+      });
+  } else {
+    vrniJsonOdgovor(odgovor, 400, { 
+      "sporočilo": "Manjka enolični identifikator userId"
+    });
+  }
+};
+
 module.exports.createUser = function(req, res) {
   User.create({
     username: req.body.username,

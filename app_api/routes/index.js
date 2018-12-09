@@ -6,10 +6,10 @@ var ctrlUsers = require('../controllers/users');
 
 // USERS routes.
 router.get('/users', // get all users
-   ctrlUsers.getUsers);
+  ctrlUsers.getUsers);
 
-// router.get('/users/:userId', //get certain user
-//   ctrlUsers.getUser);
+router.get('/users/:userId', //get certain user
+  ctrlUsers.getUser);
 
 // router.put('/users/:userId', 
 //   ctrlUsers.updateUser); //updateWholeUser
