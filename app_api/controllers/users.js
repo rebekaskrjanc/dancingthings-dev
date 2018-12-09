@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
-var vrniJsonOdgovor = function(odgovor, status, vsebina) {
-  odgovor.status(status);
-  odgovor.json(vsebina);
+var vrniJsonOdgovor = function(res, status, data) {
+  res.status(status);
+  res.json(data);
 };
 
 module.exports.createUser = function(req, res) {
