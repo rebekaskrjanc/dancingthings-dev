@@ -85,3 +85,25 @@ module.exports.createUser = function(req, res) {
     }
   });
 };
+
+module.exports.deleteUser = function(req, res){
+  var idUser = req.params.userId;
+  if(idUser){
+    User 
+      .findByIdAndRemove(idUser)
+      .exec(
+        function(error, user) {
+          if(error) {
+            vrniJsonOdgovor(res, 404, error);
+            return;
+          }
+          vrniJsonOdgovor(res, 204, null);
+        }
+      );
+  } else {
+    vrniJsonOdgovor(res, 400, {
+      "sporočilo": 
+        "Ne najdem userja, userId je obvezen parameter."
+    });
+  }
+};
