@@ -22,11 +22,8 @@ router.delete('/users/:userId',
 
 
 // POSTS routes  
-// router.get('/posts', 
-//   ctrlLectures.getLectures);
-
-// router.get('/lectures/:lectureId', 
-//   ctrlLectures.getLecture);
+router.get('/posts/:postId', 
+  ctrlPosts.getPost);
   
 // router.patch('/lectures/:lectureId', 
 //   ctrlLectures.updateLecture);

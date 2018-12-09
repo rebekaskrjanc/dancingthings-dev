@@ -10,7 +10,7 @@ var userSchema = new mongoose.Schema({
   city: String,
   gender: {type: String, required: true},
   dance: {type: String, required: true},
-  posts: [ {type: mongoose.Schema.Types.ObjectId, ref: 'Lecture'} ]
+  posts: [ {type: mongoose.Schema.Types.ObjectId, ref: 'Post'} ]
 });
 
 mongoose.model('User', userSchema, 'Users');

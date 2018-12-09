@@ -27,7 +27,7 @@ module.exports.getUser = function(req, res){
         if(!user) {
           vrniJsonOdgovor(res, 404,  {
             "sporočilo": 
-              "Ne najdem userja s podanim enoličnim identifikatorjem idLokacije."
+              "Ne najdem userja s podanim enoličnim identifikatorjem userId."
           });
           return;
         } else if (error) {
