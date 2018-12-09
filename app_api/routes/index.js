@@ -24,17 +24,14 @@ router.delete('/users/:userId',
 // POSTS routes  
 router.get('/posts/:postId', 
   ctrlPosts.getPost);
-  
-// router.patch('/lectures/:lectureId', 
-//   ctrlLectures.updateLecture);
 
-// router.put('/lectures/:lectureId', 
-//   ctrlLectures.updateWholeLecture);
+router.put('/posts/:postId', 
+  ctrlPosts.updatePost);
 
 router.post('/posts', 
   ctrlPosts.createPost);
 
-// router.delete('/lectures/:lectureId', 
-//   ctrlLectures.deleteLecture);  
+router.delete('/posts/:postId', 
+  ctrlPosts.deletePost);  
 
 module.exports = router;

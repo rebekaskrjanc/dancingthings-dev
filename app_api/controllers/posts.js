@@ -52,3 +52,49 @@ module.exports.createPost = function(req, res) {
       return;
     });
 };
+
+module.exports.updatePost = function(req, res) {
+  if(req.params && req.params.postId) {
+    if(req.body.comments|| req.body.createdAt) {
+      vrniJsonOdgovor(res, 400, { 
+        "sporočilo": "Attribute is not updatable."
+      });
+    } else {
+      Post
+        .update(
+          { _id: mongoose.Types.ObjectId(req.params.postId)},
+          { $set: req.body}
+        ).then(function(newRes){
+          vrniJsonOdgovor(res, 200, null);
+        }).catch(function(error){
+          vrniJsonOdgovor(res, 500, error);
+        });
+    }  
+  } else {
+    vrniJsonOdgovor(res, 400, { 
+      "sporočilo": "Manjka enolični identifikator postId"
+    });
+  }
+};
+
+module.exports.deletePost = function(req, res){
+  var idPost = req.params.postId;
+  if(idPost){
+    Post 
+      .findByIdAndRemove(idPost)
+      .exec(
+        function(error, post) {
+          if(error) {
+            vrniJsonOdgovor(res, 404, error);
+            return;
+          }
+          vrniJsonOdgovor(res, 204, null);
+        }
+      );
+  } else {
+    vrniJsonOdgovor(res, 400, {
+      "sporočilo": 
+        "Ne najdem posta, postId je obvezen parameter."
+    });
+  }
+};
