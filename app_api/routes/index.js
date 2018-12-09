@@ -3,6 +3,7 @@ var router = express.Router();
 
 var ctrlUsers = require('../controllers/users');
 var ctrlPosts = require('../controllers/posts');
+var ctrlComments = require('../controllers/comments');
 
 // USERS routes.
 router.get('/users', // get all users
@@ -35,3 +36,17 @@ router.delete('/posts/:postId',
   ctrlPosts.deletePost);  
 
 module.exports = router;
+
+// COMMENTS routes
+  
+// router.get('/users/:userId/comments/:commentId',
+//   ctrlComments.getComment);
+
+// router.put('/users/:userId/comments/:commentId',
+//   ctrlComments.updateComment);
+
+router.post('/posts/:postId/comments',
+  ctrlComments.createComment);
+
+// router.delete('/users/:userId/comments/:commentId',
+//   ctrlComments.deleteComment)
