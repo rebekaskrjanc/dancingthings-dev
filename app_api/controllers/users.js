@@ -37,7 +37,31 @@ module.exports.getUser = function(req, res){
         vrniJsonOdgovor(res, 200, user);
       });
   } else {
-    vrniJsonOdgovor(odgovor, 400, { 
+    vrniJsonOdgovor(res, 400, { 
+      "sporočilo": "Manjka enolični identifikator userId"
+    });
+  }
+};
+
+module.exports.updateUser = function(req, res) {
+  if(req.params && req.params.userId) {
+    if(req.body.username || req.body.password || req.body.posts) {
+      vrniJsonOdgovor(res, 400, { 
+        "sporočilo": "Attribute is not updatable."
+      });
+    } else {
+      User
+        .update(
+          { _id: mongoose.Types.ObjectId(req.params.userId)},
+          { $set: req.body}
+        ).then(function(newRes){
+          vrniJsonOdgovor(res, 200, null);
+        }).catch(function(error){
+          vrniJsonOdgovor(res, 500, error);
+        });
+    }  
+  } else {
+    vrniJsonOdgovor(res, 400, { 
       "sporočilo": "Manjka enolični identifikator userId"
     });
   }
