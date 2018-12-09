@@ -6,6 +6,19 @@ var vrniJsonOdgovor = function(res, status, data) {
   res.json(data);
 };
 
+module.exports.getUsers = function(req, res) {
+  User
+    .find()
+    .exec(function(error, users){
+      if(error) {
+        vrniJsonOdgovor(res, 500, error);
+        return;
+      } else {
+        vrniJsonOdgovor(res, 200, users);
+      }
+    });
+};
+
 module.exports.createUser = function(req, res) {
   User.create({
     username: req.body.username,

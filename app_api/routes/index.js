@@ -5,8 +5,8 @@ var ctrlUsers = require('../controllers/users');
 
 
 // USERS routes.
-// router.get('/users', // get all users
-//   ctrlUsers.getUsers);
+router.get('/users', // get all users
+   ctrlUsers.getUsers);
 
 // router.get('/users/:userId', //get certain user
 //   ctrlUsers.getUser);
