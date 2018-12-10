@@ -12,15 +12,15 @@ html
       #login-box
         .left-box
           h1  Sign Up
-          input(type='text', name='username', placeholder='Username')
-          input(type='text', name='email', placeholder='Email')
-          input(type='password', name='password', placeholder='Password')
-          //input(type='password', name='password2', placeholder='Retype password')
-          input(type='text', name='state', placeholder='State')
-          input(type='text', name='city', placeholder='City')
-          input(type='text', name='gender', placeholder='Gender')
-          input(type='text', name='dance', placeholder='Dance')
-          form(action='index.html')
+          form(action='/signUp', method='POST')
+            input(type='text', name='username', placeholder='Username')
+            input(type='text', name='email', placeholder='Email')
+            input(type='password', name='password', placeholder='Password')
+            //input(type='password', name='password2', placeholder='Retype password')
+            input(type='text', name='state', placeholder='State')
+            input(type='text', name='city', placeholder='City')
+            input(type='text', name='gender', placeholder='Gender')
+            input(type='text', name='dance', placeholder='Dance')
             input(type='submit', name='signup-button', value='Sign Up')
         .right-box
         //.logo
