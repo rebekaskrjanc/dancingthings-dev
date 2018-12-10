@@ -2,6 +2,7 @@
 var mongoose = require('mongoose');
 var Post = mongoose.model('Post');
 
+
 var vrniJsonOdgovor = function(res, status, data) {
   res.status(status);
   res.json(data);
