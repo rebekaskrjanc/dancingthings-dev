@@ -39,7 +39,7 @@ module.exports = router;
 
 // COMMENTS routes
   
-// router.get('/users/:userId/comments/:commentId',
+// router.get('/posts/:postId/comments/:commentId',
 //   ctrlComments.getComment);
 
 // router.put('/users/:userId/comments/:commentId',
