@@ -12,11 +12,12 @@ html
       #login-box
         .left-box
           h1  Sign Up
-          form(action='/signUp', method='POST')
+          form(action='/signup', method='POST')
             input(type='text', name='username', placeholder='Username')
+            input(type='text', name='name', placeholder='Name')
             input(type='text', name='email', placeholder='Email')
             input(type='password', name='password', placeholder='Password')
-            //input(type='password', name='password2', placeholder='Retype password')
+            input(type='password', name='passwordRetype', placeholder='Retype password')
             input(type='text', name='state', placeholder='State')
             input(type='text', name='city', placeholder='City')
             input(type='text', name='gender', placeholder='Gender')
