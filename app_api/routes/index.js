@@ -38,15 +38,5 @@ router.delete('/posts/:postId',
 module.exports = router;
 
 // COMMENTS routes
-  
-// router.get('/posts/:postId/comments/:commentId',
-//   ctrlComments.getComment);
-
-// router.put('/users/:userId/comments/:commentId',
-//   ctrlComments.updateComment);
-
 router.post('/posts/:postId/comments',
   ctrlComments.createComment);
-
-// router.delete('/users/:userId/comments/:commentId',
-//   ctrlComments.deleteComment)
