@@ -4,6 +4,7 @@ var ctrlLokacije = require('../controllers/lokacije');
 var ctrlOstalo = require('../controllers/ostalo');
 var ctrlSignup = require('../controllers/signup');
 var ctrlEditprofile = require('../controllers/editprofile');
+var ctrlNewPost = require('../controllers/newpost');
 
 
 /* GET home page. */
@@ -27,6 +28,7 @@ router.post('/signup', ctrlSignup.signup);
 router.get('/creategroup', ctrlOstalo.creategroup)
 
 router.post('/edituserprofile', ctrlEditprofile.editprofile);
+router.post('/newpost', ctrlNewPost.newpost);
 
 
 
