@@ -1,7 +1,7 @@
 var rp = require('request-promise');
 
 module.exports.editprofile = async function(req, res){
-  var path = '/users:usedId';
+  var path = '/users/:userId';
   var envPath;
   var errorMsg;
   

@@ -35,7 +35,8 @@ html
             li
               a(href='/photos') Photos
             li
-              a(href='/profil') Profile
+              - urlMyProfile = '/myprofile/' + '5c0d7a8b60efb774067a7c00'
+              a(href=urlMyProfile) My Profile
    
     .container
       block content
