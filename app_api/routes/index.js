@@ -35,8 +35,6 @@ router.post('/posts',
 router.delete('/posts/:postId', 
   ctrlPosts.deletePost);  
 
-module.exports = router;
-
 // COMMENTS routes
 router.post('/posts/:postId/comments',
   ctrlComments.createComment);
@@ -56,3 +54,5 @@ router.post('/groups',
 
 router.delete('/groups/:groupId', 
   ctrlGroups.deleteGroup);
+
+module.exports = router;

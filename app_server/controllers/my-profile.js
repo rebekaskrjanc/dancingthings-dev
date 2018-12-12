@@ -27,8 +27,28 @@ module.exports.showMyProfile = async function(req, res) {
       user: currentUser
     });
   }
-
 };
+
+module.exports.showEditProfile = async function(req, res) {
+  var errorMsg;
+
+  if(req.params && req.params.userId) {
+    currentUser = await getCurrentUser(req.params.userId);
+  } else {
+    errorMsg = "userId is missing from url."
+  }
+
+  if(!currentUser) {
+    errorMsg = 'Couldnt find User with specified userId'
+    res.render('error', {
+      errorMsg: errorMsg
+    });
+  } else {
+    res.render('editprofile', {
+      user: currentUser
+    });
+  }
+}
 
 async function getCurrentUser(id_user) {
   var path = '/users/' + id_user;

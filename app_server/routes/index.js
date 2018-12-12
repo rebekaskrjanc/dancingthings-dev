@@ -29,11 +29,12 @@ router.get('/signup', ctrlOstalo.signupRender);
 router.post('/signup', ctrlSignup.signup);
 router.get('/creategroup', ctrlOstalo.creategroup)
 
-//router.post('/edituserprofile', ctrlEditprofile.editprofile);
 router.post('/newpost', ctrlNewPost.newpost);
 
 // My profile routes
 router.get('/myprofile/:userId', ctrlMyProfile.showMyProfile);
+router.get('/myprofile/:userId/edit', ctrlMyProfile.showEditProfile);
+//router.post('/edituserprofile', ctrlEditprofile.editprofile);
 
 
 module.exports = router;

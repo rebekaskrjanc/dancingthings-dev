@@ -9,7 +9,7 @@ block content
             h1.page-header John Doe
             .row
               .col-md-4
-                img.img-thumbnail(src='images/user-default.jpg')
+                img.img-thumbnail(src='/images/user-default.jpg')
               .col-md-8
                 ul
                   li
@@ -30,7 +30,8 @@ block content
                   li
                     strong Dance: 
                     | #{user.dance}
-                  a.btn.btn-default(href='/editprofile') Edit
+                  - urlEdit = '/myprofile/' + user._id + '/edit'
+                  a.btn.btn-default(href=urlEdit) Edit
             br
             br
               
@@ -62,8 +63,8 @@ block content
                         button.btn.btn-default(type='button')
                           i.fas.fa-trash-alt
                       .col-sm-2
-                        a.post-avatar.thumbnail(href='images/user-default.jpg')
-                          img(src='images/user-default.jpg')
+                        a.post-avatar.thumbnail(href='/images/user-default.jpg')
+                          img(src='/images/user-default.jpg')
                           .text-center Me
                         .likes.text-center 7 Likes
                       // col-sm-2 end
@@ -92,13 +93,13 @@ block content
                         .comments
                           .comment
                             a.comment-avatar.pull-left(href='#')
-                              img(src='images/user-default.jpg')
+                              img(src='/images/user-default.jpg')
                             .comment-text
                               p Sed convallis est in ante sodales, sit amet consectetur leo commodo.
                           .clearfix
                           .comment
                             a.comment-avatar.pull-left(href='#')
-                              img(src='images/user-default.jpg')
+                              img(src='/images/user-default.jpg')
                             .comment-text
                               p Sed convallis est in ante sodales, sit amet consectetur leo commodo.
                           .clearfix
@@ -111,40 +112,40 @@ block content
               ul
                 li
                   a.thumbnail(href='profile.html')
-                    img(src='images/user-default.jpg')
+                    img(src='/images/user-default.jpg')
                 li
                   a.thumbnail(href='profile.html')
-                    img(src='images/user-default.jpg')
+                    img(src='/images/user-default.jpg')
                 li
                   a.thumbnail(href='profile.html')
-                    img(src='images/user-default.jpg')
+                    img(src='/images/user-default.jpg')
                 li
                   a.thumbnail(href='profile.html')
-                    img(src='images/user-default.jpg')
+                    img(src='/images/user-default.jpg')
                 li
                   a.thumbnail(href='profile.html')
-                    img(src='images/user-default.jpg')
+                    img(src='/images/user-default.jpg')
                 li
                   a.thumbnail(href='profile.html')
-                    img(src='images/user-default.jpg')
+                    img(src='/images/user-default.jpg')
                 li
                   a.thumbnail(href='profile.html')
-                    img(src='images/user-default.jpg')
+                    img(src='/images/user-default.jpg')
                 li
                   a.thumbnail(href='profile.html')
-                    img(src='images/user-default.jpg')
+                    img(src='/images/user-default.jpg')
                 li
                   a.thumbnail(href='profile.html')
-                    img(src='images/user-default.jpg')
+                    img(src='/images/user-default.jpg')
                 li
                   a.thumbnail(href='profile.html')
-                    img(src='images/user-default.jpg')
+                    img(src='/images/user-default.jpg')
                 li
                   a.thumbnail(href='profile.html')
-                    img(src='images/user-default.jpg')
+                    img(src='/images/user-default.jpg')
                 li
                   a.thumbnail(href='profile.html')
-                    img(src='images/user-default.jpg')
+                    img(src='/images/user-default.jpg')
               .clearfix
               a.btn.btn-primary(href='#') View All Friends
           .panel.panel-default.groups
@@ -152,19 +153,19 @@ block content
               h3.panel-title Latest Groups
             .panel-body
               .group-item
-                img(src='images/group.png')
+                img(src='/images/group.png')
                 h4
                   a(href='#') Sample Group One
                 p This is a Dancing Things social network sample group
               .clearfix
               .group-item
-                img(src='images/group.png')
+                img(src='/images/group.png')
                 h4
                   a(href='#') Sample Group One
                 p This is a Dancing Things social network sample group
               .clearfix
               .group-item
-                img(src='images/group.png')
+                img(src='/images/group.png')
                 h4
                   a(href='#') Sample Group One
                 p This is a Dancing Things social network sample group
