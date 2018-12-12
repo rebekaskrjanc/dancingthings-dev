@@ -1,0 +1,9 @@
+'use strict';
+var mongoose = require('mongoose');
+
+var groupSchema = new mongoose.Schema({
+  groupName: {type: String, required: true, unique: true, dropDups: true},
+  groupAdmin: {type: String, required: true},
+});
+
+mongoose.model('Group', groupSchema, 'Groups');
