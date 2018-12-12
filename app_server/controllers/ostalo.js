@@ -1,11 +1,3 @@
-var request = require('request');
-var apiParametri = {
-  streznik: 'http://localhost:' + process.env.PORT
-};
-if (process.env.NODE_ENV === 'production') {
-  apiParametri.streznik = 'https://dancingthings.herokuapp.com/';
-}
-
 /* Vrni stran s podrobnostmi*/
 module.exports.informacije = function(req, res) {
   res.render('index', { title: 'Informacije o aplikaciji' });

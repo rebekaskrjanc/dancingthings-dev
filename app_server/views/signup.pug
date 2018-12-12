@@ -9,44 +9,12 @@ html
     link(rel='stylesheet', href='/stylesheets/style-signup.css')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.4.1/css/all.css', integrity='sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz', crossorigin='anonymous')
     body
-<<<<<<< HEAD
-      form(action="/signup", method="POST")
-        #login-box
-          .left-box
-            h1  Sign Up
-            br
-            form
-              .form-group
-                label(for='formGroupExampleInput') Name
-                input#formGroupNameInput.form-control(name="name", type='text', placeholder='Name input')
-              .form-group
-                label(for='formGroupExampleInput2') Email
-                input#formGroupEmailInput.form-control(name="email", type='text', placeholder='Email input')
-              .form-group
-                label(for='formGroupExampleInput2') City
-                input#formGroupCityInput.form-control(name="city", type='text', placeholder='City input')
-              .form-group
-                label(for='formGroupExampleInput2') State
-                input#formGroupStateInput.form-control(name="state", type='text', placeholder='State input')
-              .form-group
-                label(for='formGroupExampleInput2') Gender
-                input#formGroupGenderInput.form-control(name="gender", type='text', placeholder='Gender input')
-              .form-group
-                label(for='formGroupExampleInput2') Dance
-                input#formGroupDanceInput.form-control(name="dance", type='text', placeholder='Dance input')
-            br
-            br
-            button.btn.btn-default(type='submit') Submit Changes
-          .right-box
-          //.logo
-            //img(src='images/dark_logo_transparent_background.png')
-=======
       #login-box
         .left-box
           h1  Sign Up
           form(action='/signup', method='POST')
             input(type='text', name='username', placeholder='Username')
-            input(type='text', name='name', placeholder='Name')
+            input(type='text', name='firstname', placeholder='Name')
             input(type='text', name='email', placeholder='Email')
             input(type='password', name='password', placeholder='Password')
             input(type='password', name='passwordRetype', placeholder='Retype password')
@@ -55,8 +23,8 @@ html
             input(type='text', name='gender', placeholder='Gender')
             input(type='text', name='dance', placeholder='Dance')
             input(type='submit', name='signup-button', value='Sign Up')
->>>>>>> d3aee7b7a875f7d689b0ecafba44aec51c3a6d16
         .right-box
-  script(src='/javascripts/sign-up-validation.js')
-  script(src='/javascripts/jquery-3.3.1.min.js')
-  script(src='/bootstrap/js/bootstrap.min.js')
+        //.logo
+          //img(src='images/dark_logo_transparent_background.png')
+      .right-box
+  script(src="/javascripts/sign-up-validation.js")
