@@ -4,6 +4,7 @@ var router = express.Router();
 var ctrlUsers = require('../controllers/users');
 var ctrlPosts = require('../controllers/posts');
 var ctrlComments = require('../controllers/comments');
+var ctrlGroups = require('../controllers/groups');
 
 // USERS routes.
 router.get('/users', // get all users
@@ -39,3 +40,19 @@ module.exports = router;
 // COMMENTS routes
 router.post('/posts/:postId/comments',
   ctrlComments.createComment);
+
+// GROUPS routes
+router.get('/groups', // get all users
+  ctrlGroups.getGroups);
+
+router.get('/groups/:groupId', //get certain user
+  ctrlGroups.getGroup);
+
+router.put('/groups/:groupId', 
+	ctrlGroups.updateGroup); 
+
+router.post('/groups', 
+  ctrlGroups.createGroup);
+
+router.delete('/groups/:groupId', 
+  ctrlGroups.deleteGroup);

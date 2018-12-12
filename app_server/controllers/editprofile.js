@@ -4,7 +4,7 @@ module.exports.editprofile = async function(req, res){
   var path = '/users:usedId';
   var envPath;
   var errorMsg;
-  var id=req.body
+  
   if(process.env.NODE_ENV === 'production') {
     envPath = 'https://dancingthings.herokuapp.com/api';
   } else {

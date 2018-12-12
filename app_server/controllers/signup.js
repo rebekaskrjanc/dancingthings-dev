@@ -4,6 +4,8 @@ module.exports.signup = async function(req, res){
   var path = '/users';
   var envPath;
   var errorMsg;
+  var idUser;
+  var parametriZahteve;
   if(process.env.NODE_ENV === 'production') {
     envPath = 'https://dancingthings.herokuapp.com/api';
   } else {
@@ -14,7 +16,7 @@ module.exports.signup = async function(req, res){
       (req.body.password != "") && (req.body.passwordRetype != "") && (req.body.state != "") &&
       (req.body.state != "") && (req.body.city != "") && (req.body.gender != "") &&
       (req.body.dance != "") && (req.body.password == req.body.passwordRetype)) {
-      var parametriZahteve = {
+      parametriZahteve = {
         url: envPath + path,
         method: 'POST',
         json: true,
@@ -43,8 +45,8 @@ module.exports.signup = async function(req, res){
       error: errorMsg
     });
   } else {
-    res.render('homepage', { 
-      title: 'Homepage',
+    res.render('index', { 
+      title: parametriZahteve.url,
     });
   }
 };
