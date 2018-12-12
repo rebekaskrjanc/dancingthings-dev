@@ -27,6 +27,10 @@ module.exports.editprofile = function(req, res) {
   res.render('editprofile', { title: 'Uredi profil' });
 };
 /* Vrni stran Editprofile */
+module.exports.editprofileRender = function(req, res) {
+  res.render('editprofile', { title: 'Sign Up' });
+};
+/* Vrni stran Sign Up */
 module.exports.signupRender = function(req, res) {
   res.render('signup', { title: 'Sign Up' });
 };
@@ -34,6 +38,7 @@ module.exports.signupRender = function(req, res) {
 module.exports.signup = function(req, res) {
   res.render('signup', { title: 'Sign Up' });
 };
+
 
 /* Vrni stran Comments */
 module.exports.comments = function(req, res) { //26 272 lecture udemy

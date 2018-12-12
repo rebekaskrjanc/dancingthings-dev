@@ -12,8 +12,7 @@ router.get('/users', // get all users
 router.get('/users/:userId', //get certain user
   ctrlUsers.getUser);
 
-router.put('/users/:userId', 
-  ctrlUsers.updateUser); 
+router.put('/users/:userId', ctrlUsers.updateUser); 
 
 router.post('/users', 
   ctrlUsers.createUser);

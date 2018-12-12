@@ -2,13 +2,22 @@ extends layout
 
 block content
 
-  form
+  form(action='/edituserprofile', method='POST')
     .form-group
       label(for='formGroupExampleInput') Name
-      input#formGroupNameInput.form-control(name="name", type='text', placeholder='Name input')
+      input#formGroupNameInput.form-control(name="firstname", type='text', placeholder='Name input')
+    .form-group
+      label(for='formGroupExampleInput') User name
+      input#formGroupNameInput.form-control(name="username", type='text', placeholder='Name input')
     .form-group
       label(for='formGroupExampleInput2') Email
       input#formGroupEmailInput.form-control(name="email", type='text', placeholder='Email input')
+    .form-group
+      label(for='formGroupExampleInput') Pasword
+      input#formGroupNameInput.form-control(name="password", type='text', placeholder='Name input')
+    .form-group
+      label(for='formGroupExampleInput') Retype Password
+      input#formGroupNameInput.form-control(name="passwordRetype", type='text', placeholder='Name input')
     .form-group
       label(for='formGroupExampleInput2') City
       input#formGroupCityInput.form-control(name="city", type='text', placeholder='City input')
