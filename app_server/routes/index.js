@@ -24,6 +24,7 @@ router.post('/comments', ctrlOstalo.comments);
 router.get('/editprofile', ctrlOstalo.editprofile);
 router.get('/signup', ctrlOstalo.signupRender);
 router.post('/signup', ctrlSignup.signup);
+router.get('/creategroup', ctrlOstalo.creategroup)
 
 router.post('/edituserprofile', ctrlEditprofile.editprofile);
 

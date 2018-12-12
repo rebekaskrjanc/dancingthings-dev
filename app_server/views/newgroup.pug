@@ -1,0 +1,10 @@
+extends layout
+
+block content
+
+  form(action='/newgroup', method='POST')
+    .form-group
+      label(for='formGroupExampleInput') Group name
+      input#formGroupNameInput.form-control(name="firstname", type='text', placeholder='Name input')
+    br
+    button.btn.btn-default(type='submit') Create a group
