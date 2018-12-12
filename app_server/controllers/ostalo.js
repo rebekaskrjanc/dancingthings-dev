@@ -39,6 +39,14 @@ module.exports.signup = function(req, res) {
   res.render('signup', { title: 'Sign Up' });
 };
 
+module.exports.creategroup = function(req, res) {
+  res.render('creategroup', { title: 'Create new group' });
+};
+
+module.exports.newpost = function(req, res) {
+  res.render('index', { title: 'New Post' });
+};
+
 
 /* Vrni stran Comments */
 module.exports.comments = function(req, res) { //26 272 lecture udemy

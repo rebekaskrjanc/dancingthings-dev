@@ -5,6 +5,8 @@ var ctrlOstalo = require('../controllers/ostalo');
 var ctrlSignup = require('../controllers/signup');
 //var ctrlEditprofile = require('../controllers/editprofile');
 var ctrlMyProfile = require('../controllers/my-profile');
+var ctrlEditprofile = require('../controllers/editprofile');
+var ctrlNewPost = require('../controllers/newpost');
 
 
 /* GET home page. */
@@ -25,8 +27,10 @@ router.post('/comments', ctrlOstalo.comments);
 //router.get('/editprofile', ctrlOstalo.editprofile);
 router.get('/signup', ctrlOstalo.signupRender);
 router.post('/signup', ctrlSignup.signup);
+router.get('/creategroup', ctrlOstalo.creategroup)
 
 //router.post('/edituserprofile', ctrlEditprofile.editprofile);
+router.post('/newpost', ctrlNewPost.newpost);
 
 // My profile routes
 router.get('/myprofile/:userId', ctrlMyProfile.showMyProfile);

@@ -10,9 +10,9 @@ block content
               .panel-heading
                 h3.panel-title Wall
               .panel-body
-                form
+                form(action='/newpost', method='POST')
                   .form-group
-                    textarea.form-control(placeholder='Write on the wall')
+                    textarea.form-control(name='vsebinaObjave', placeholder='Write on the wall')
                   button.btn.btn-default(type='submit') Submit
                   .pull-right
                     .btn-group
