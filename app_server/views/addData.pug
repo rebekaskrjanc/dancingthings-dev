@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h4  ADD SOME USERS 
+    form(action='/addUserDB', method='POST')
+      .form-group
+        input.form-control(type='text', name='username', placeholder='Username')
+        input.form-control(type='text', name='firstname', placeholder='Name')
+        input.form-control(type='text', name='email', placeholder='Email')
+        input.form-control(type='password', name='password', placeholder='Password')
+        input.form-control(type='password', name='passwordRetype', placeholder='Retype password')
+        input.form-control(type='text', name='state', placeholder='State')
+        input.form-control(type='text', name='city', placeholder='City')
+        input.form-control(type='text', name='gender', placeholder='Gender')
+        input.form-control(type='text', name='dance', placeholder='Dance')
+        input.btn.btn-default(type='submit', name='signup-button', value='Add User')
+  br
+  h4  ADD SOME GROUPS
+    form(action='/newgroup', method='POST')
+      .form-group
+        label(for='formGroupExampleInput') Group name
+        input#formGroupNameInput.form-control(name="groupName", type='text', placeholder='Name input')
+      br
+      button.btn.btn-default(type='submit') Create a group
+  br
+  h4 ADD SOME POSTS
+    form(action='/newpost', method='POST')
+      .form-group
+        textarea.form-control(name='vsebinaObjave', placeholder='Write on the wall')
+      button.btn.btn-default(type='submit') Submit
