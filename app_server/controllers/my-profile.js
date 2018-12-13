@@ -94,6 +94,44 @@ module.exports.editProfile = async function(req, res) {
   }
 };
 
+module.exports.deleteUserReq = async function(req, res){
+  var errorMsg;
+  var user;
+
+  console.log('cccccccccccccc');
+
+  user = await getCurrentUser(req.params.userId);
+  if(user.error){
+    errorMsg = 'Couldnt get current user.';
+  } else {
+    userDelete = await deleteUser(user._id);
+  }
+
+  if(errorMsg){
+    res.render('my-profile', {
+      user: user
+    });
+  } else {
+    res.render('signup');
+  }
+
+};
+
+async function deleteUser(id_user) {
+  var path = '/users/' + id_user;
+  var paramsReq = {
+    url: envPath + path,
+    method: 'DELETE',
+    json: {},
+  };
+
+  try {
+    return await rp(paramsReq).promise();
+  } catch (error) {
+    return error;
+  }
+}
+
 async function getCurrentUser(id_user) {
   var path = '/users/' + id_user;
   var paramsReq = {

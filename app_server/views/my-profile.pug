@@ -32,6 +32,8 @@ block content
                     | #{user.dance}
                   - urlEdit = '/myprofile/' + user._id + '/edit'
                   a.btn.btn-default(href=urlEdit) Edit
+                  - urlDelete = '/myprofile/' + user._id + '/deleteUser'
+                  a.btn.btn-default(href=urlDelete) Delete
             br
             br
               
