@@ -44,7 +44,7 @@ module.exports.getGroup = function(req, res){
 
 module.exports.createGroup = function(req, res) {
   Group.create({
-    groupname: req.body.groupname,
+    groupName: req.body.groupName,
     admin: req.body.admin, //spremeni ko usposobiš userId
 
   }, function(error, group) {

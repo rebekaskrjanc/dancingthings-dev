@@ -10,6 +10,12 @@ module.exports.profil = function(req, res) {
 module.exports.members = function(req, res) {
   res.render('members', { title: 'Prikazi profil' });
 };
+var prikaziZacetniSeznamSkupin = function(req, res, vsebina) {
+  res.render('groups', {
+    title: 'Dancing Things - Seznam skupin!',
+    groups: vsebina
+  });
+}
 /* Vrni stran Groups */
 module.exports.groups = function(req, res) {
   res.render('groups', { title: 'Prikazi profil' });
@@ -18,7 +24,7 @@ module.exports.groups = function(req, res) {
 module.exports.photos = function(req, res) {
   res.render('photos', { title: 'Prikazi profil' });
 };
-/* Vrni stran Photos */
+/* Vrni stran Homepage */
 module.exports.homepage = function(req, res) {
   res.render('homepage', { title: 'Prikazi profil' });
 };
@@ -34,15 +40,15 @@ module.exports.editprofileRender = function(req, res) {
 module.exports.signupRender = function(req, res) {
   res.render('signup', { title: 'Sign Up' });
 };
-
+/* Vrni stran Sign Up */
 module.exports.signup = function(req, res) {
   res.render('signup', { title: 'Sign Up' });
 };
-
+/* Vrni stran Create New Group */
 module.exports.creategroup = function(req, res) {
   res.render('creategroup', { title: 'Create new group' });
 };
-
+/* Vrni stran Create New Post */
 module.exports.newpost = function(req, res) {
   res.render('index', { title: 'New Post' });
 };

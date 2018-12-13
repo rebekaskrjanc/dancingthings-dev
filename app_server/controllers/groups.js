@@ -10,7 +10,7 @@ module.exports.newgroup = async function(req, res){
   } else {
     envPath = 'http://localhost:' + (process.env.PORT || '3000') + '/api';
   }
-  if(req.body.groupname!="") {
+  if(req.body.groupName!="") {
     
     parametriZahteve = {
       url: envPath + path,
@@ -47,5 +47,8 @@ async function asyncSignUp(parametriZahteve) {
     return error;
   }
 }
+
+
+
 
 
