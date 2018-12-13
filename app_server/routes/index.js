@@ -27,7 +27,7 @@ router.post('/comments', ctrlOstalo.comments);
 //router.get('/editprofile', ctrlOstalo.editprofile);
 router.get('/signup', ctrlOstalo.signupRender);
 router.post('/signup', ctrlSignup.signup);
-router.post('/addUserDB', ctrlSignup.addUserDB);
+//router.post('/addUserDB', ctrlSignup.addUserDB);
 router.get('/creategroup', ctrlOstalo.creategroup);
 router.get('/db', ctrlOstalo.db);
 router.get('/addData', ctrlOstalo.addData);
