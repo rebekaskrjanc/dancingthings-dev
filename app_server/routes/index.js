@@ -38,7 +38,8 @@ router.post('/newpost', ctrlNewPost.newpost);
 // My profile routes
 router.get('/myprofile/:userId', ctrlMyProfile.showMyProfile);
 router.get('/myprofile/:userId/edit', ctrlMyProfile.showEditProfile);
-router.put('/myprofile/:userId/edit', ctrlMyProfile.editProfile);
+router.post('/myprofile/:userId/edit', ctrlMyProfile.editProfile);
+router.get('/myprofile/:userId/deleteUser', ctrlMyProfile.deleteUserReq);
 
 //Group Actions
 router.post('/newgroup', ctrlGroupActions.newgroup);
