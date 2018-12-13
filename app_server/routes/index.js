@@ -3,7 +3,6 @@ var router = express.Router();
 var ctrlLokacije = require('../controllers/lokacije');
 var ctrlOstalo = require('../controllers/ostalo');
 var ctrlSignup = require('../controllers/signup');
-//var ctrlEditprofile = require('../controllers/editprofile');
 var ctrlMyProfile = require('../controllers/my-profile');
 var ctrlEditprofile = require('../controllers/editprofile');
 var ctrlNewPost = require('../controllers/newpost');
@@ -34,7 +33,7 @@ router.post('/newpost', ctrlNewPost.newpost);
 // My profile routes
 router.get('/myprofile/:userId', ctrlMyProfile.showMyProfile);
 router.get('/myprofile/:userId/edit', ctrlMyProfile.showEditProfile);
-//router.post('/edituserprofile', ctrlEditprofile.editprofile);
+router.put('/myprofile/:userId/edit', ctrlMyProfile.editProfile);
 
 
 module.exports = router;

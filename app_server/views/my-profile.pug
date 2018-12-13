@@ -6,7 +6,7 @@ block content
       .row
         .col-md-8
           .profile
-            h1.page-header John Doe
+            h1.page-header #{user.name}
             .row
               .col-md-4
                 img.img-thumbnail(src='/images/user-default.jpg')
@@ -26,7 +26,7 @@ block content
                     | #{user.state}
                   li
                     strong Gender:
-                    |  #{user.gender}
+                    | #{user.gender}
                   li
                     strong Dance: 
                     | #{user.dance}

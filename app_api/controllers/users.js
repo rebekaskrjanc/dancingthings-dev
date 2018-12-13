@@ -46,7 +46,7 @@ module.exports.getUser = function(req, res){
 module.exports.updateUser = function(req, res) {
   console.log(req.params.userId)
   if(req.params && req.params.userId) {
-    if(req.body.username || req.body.password || req.body.posts) {
+    if(req.body.username || req.body.password || req.body.password || req.body.posts) {
       vrniJsonOdgovor(res, 400, { 
         "sporočilo": "Attribute is not updatable."
       });
@@ -72,9 +72,11 @@ module.exports.createUser = function(req, res) {
   User.create({
     username: req.body.username,
     password: req.body.password,
+    passwordRetype: req.body.passwordRetype,
     name: req.body.name,
     email: req.body.email,
     state: req.body.state,
+    city: req.body.city,
     gender: req.body.gender,
     dance: req.body.dance
 

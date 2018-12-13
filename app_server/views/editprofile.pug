@@ -2,7 +2,8 @@ extends layout
 
 block content
 
-  form(action='/edituserprofile', method='POST')
+  - urlEdit = '/myprofile/' + user._id + '/edit'
+  form(action=urlEdit, method='PUT')
     .form-group
       label(for='formGroupExampleInput') Name
       input#formGroupNameInput.form-control(name="firstname", type='text', value=user.name)

@@ -45,7 +45,7 @@ module.exports.signup = async function(req, res){
       error: errorMsg
     });
   } else {
-    res.render('index', { 
+    res.render('Homepage', { 
       title: parametriZahteve.url,
     });
   }
