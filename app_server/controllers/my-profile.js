@@ -54,8 +54,6 @@ module.exports.editProfile = async function(req, res) {
   var errorMsg;
   var user;
 
-  console.log('cccccccccccccc');
-
   user = await getCurrentUser(req.params.userId);
   if(user.error){
     errorMsg = 'bbbbbbbbbbbbbb';
@@ -67,6 +65,7 @@ module.exports.editProfile = async function(req, res) {
     }
     if(req.body.username || req.body.email || req.body.dance) {
       var userUpdate = await updateUser(req.body, user._id);
+      console.log(userUpdate.error);
       if(userUpdate.error) {
         errorMsg = 'Updating user didnt succeed.';
       } 

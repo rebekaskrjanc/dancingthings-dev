@@ -46,7 +46,7 @@ module.exports.getUser = function(req, res){
 module.exports.updateUser = function(req, res) {
   console.log(req.params.userId)
   if(req.params && req.params.userId) {
-    if(req.body.username || req.body.password || req.body.password || req.body.posts) {
+    if(req.body.username || req.body.posts) {
       vrniJsonOdgovor(res, 400, { 
         "sporočilo": "Attribute is not updatable."
       });
