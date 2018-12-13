@@ -63,7 +63,7 @@ module.exports.editProfile = async function(req, res) {
     if(req.body.password != req.body.passwordRetype) {
       errorMsg = 'Password Retype must match Password!';
     }
-    if(req.body.username || req.body.email || req.body.dance) {
+    if(req.body.name || req.body.email || req.body.dance) {
       var userUpdate = await updateUser(req.body, user._id);
       console.log(userUpdate.error);
       if(userUpdate.error) {
@@ -153,10 +153,9 @@ async function updateUser(body, id_user) {
     method: 'PUT',
     json: true,
     body: {
-      username: body.username,
       password: body.password,
       passwordRetype: body.passwordRetype,
-      name: body.name,
+      firstname: body.firstname,
       email: body.email,
       state: body.state,
       city: body.city,
