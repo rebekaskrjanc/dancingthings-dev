@@ -1,3 +1,4 @@
+var mongoose = require('mongoose');
 
 document.getElementById("gumbDelete").addEventListener("click", Delete);
 var MongoClient = require('mongodb').MongoClient;
