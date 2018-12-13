@@ -165,3 +165,7 @@ footer{
 		padding-top:40px;
 	}
 }
+
+.errorMsg {
+	color: red;
+}

@@ -3,7 +3,7 @@ extends layout
 block content
 
   if errorMsg
-    h4 #{errorMsg}
+    h4.errorMsg #{errorMsg}
 
   - urlEdit = '/myprofile/' + user._id + '/edit'
   form(action=urlEdit, method='POST')
