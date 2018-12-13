@@ -6,6 +6,7 @@ var ctrlSignup = require('../controllers/signup');
 var ctrlMyProfile = require('../controllers/my-profile');
 var ctrlEditprofile = require('../controllers/editprofile');
 var ctrlNewPost = require('../controllers/newpost');
+var ctrlGroupActions = require('../controllers/groups');
 
 
 /* GET home page. */
@@ -34,6 +35,9 @@ router.post('/newpost', ctrlNewPost.newpost);
 router.get('/myprofile/:userId', ctrlMyProfile.showMyProfile);
 router.get('/myprofile/:userId/edit', ctrlMyProfile.showEditProfile);
 router.put('/myprofile/:userId/edit', ctrlMyProfile.editProfile);
+
+//Group Actions
+router.post('/newgroup', ctrlGroupActions.newgroup);
 
 
 module.exports = router;
