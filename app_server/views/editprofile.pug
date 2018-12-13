@@ -2,8 +2,11 @@ extends layout
 
 block content
 
+  if errorMsg
+    h4 #{errorMsg}
+
   - urlEdit = '/myprofile/' + user._id + '/edit'
-  form(action=urlEdit, method='PUT')
+  form(action=urlEdit, method='POST')
     .form-group
       label(for='formGroupExampleInput') Name
       input#formGroupNameInput.form-control(name="firstname", type='text', value=user.name)

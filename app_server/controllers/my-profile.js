@@ -52,13 +52,24 @@ module.exports.showEditProfile = async function(req, res) {
 
 module.exports.editProfile = async function(req, res) {
   var errorMsg;
+  var user;
+
+  console.log('cccccccccccccc');
+
+  user = await getCurrentUser(req.params.userId);
+  if(user.error){
+    errorMsg = 'bbbbbbbbbbbbbb';
+  }
 
   if(req.body){
     if(req.body.password != req.body.passwordRetype) {
       errorMsg = 'Password Retype must match Password!';
     }
     if(req.body.username || req.body.email || req.body.dance) {
-      var updatedUser = await updateUser(req.body, req.params._id);
+      var userUpdate = await updateUser(req.body, user._id);
+      if(userUpdate.error) {
+        errorMsg = 'Updating user didnt succeed.';
+      } 
     } else {
       errorMsg = 'Fill out required inputs!'
     }
@@ -66,13 +77,19 @@ module.exports.editProfile = async function(req, res) {
     errorMsg = 'Fill out required fields!';
   }
 
+  user = await getCurrentUser(req.params.userId);
+  if(user.error){
+    errorMsg = 'aaaaaaaaaaaaaaaa';
+  }
+
   if(errorMsg) {
     res.render('editprofile', {
-      errorMsg: errorMsg
+      errorMsg: errorMsg,
+      user: user
     });
   } else {
     res.render('my-profile', {
-      user: updatedUser
+      user: user
     });
   }
 };
@@ -105,7 +122,7 @@ async function updateUser(body, id_user) {
       name: body.name,
       email: body.email,
       state: body.state,
-      city: req.body.city,
+      city: body.city,
       gender: body.gender,
       dance: body.dance
     }
@@ -116,4 +133,4 @@ async function updateUser(body, id_user) {
   } catch (error) {
     return error;
   }
-}
+};
