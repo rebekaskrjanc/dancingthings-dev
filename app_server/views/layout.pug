@@ -11,7 +11,7 @@ html
   body
     header
       .container
-        img.logo(src='images/white_logo_transparent_background.png')
+        img.logo(src='/images/white_logo_transparent_background.png')
         // Search form
         form.form-inline
           input.form-control.searchbar(type='text', placeholder='Search', aria-label='Search')
@@ -35,7 +35,8 @@ html
             li
               a(href='/photos') Photos
             li
-              a(href='/profil') Profile
+              - urlMyProfile = '/myprofile/' + '5c0dbb59158717a0a6bde6ce'
+              a(href=urlMyProfile) My Profile
    
     .container
       block content

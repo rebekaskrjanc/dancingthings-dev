@@ -2,34 +2,35 @@ extends layout
 
 block content
 
-  form(action='/edituserprofile', method='POST')
+  - urlEdit = '/myprofile/' + user._id + '/edit'
+  form(action=urlEdit, method='PUT')
     .form-group
       label(for='formGroupExampleInput') Name
-      input#formGroupNameInput.form-control(name="firstname", type='text', placeholder='Name input')
+      input#formGroupNameInput.form-control(name="firstname", type='text', value=user.name)
     .form-group
       label(for='formGroupExampleInput') User name
-      input#formGroupNameInput.form-control(name="username", type='text', placeholder='Name input')
+      input#formGroupNameInput.form-control(name="username", type='text', value=user.username)
     .form-group
       label(for='formGroupExampleInput2') Email
-      input#formGroupEmailInput.form-control(name="email", type='text', placeholder='Email input')
+      input#formGroupEmailInput.form-control(name="email", type='text', value=user.email)
     .form-group
-      label(for='formGroupExampleInput') Pasword
-      input#formGroupNameInput.form-control(name="password", type='text', placeholder='Name input')
+      label(for='formGroupExampleInput') Password
+      input#formGroupNameInput.form-control(name="password", type='password', placeholder='Password')
     .form-group
       label(for='formGroupExampleInput') Retype Password
-      input#formGroupNameInput.form-control(name="passwordRetype", type='text', placeholder='Name input')
+      input#formGroupNameInput.form-control(name="passwordRetype", type='password', placeholder='Retype Password')
     .form-group
       label(for='formGroupExampleInput2') City
-      input#formGroupCityInput.form-control(name="city", type='text', placeholder='City input')
+      input#formGroupCityInput.form-control(name="city", type='text', value=user.city)
     .form-group
       label(for='formGroupExampleInput2') State
-      input#formGroupStateInput.form-control(name="state", type='text', placeholder='State input')
+      input#formGroupStateInput.form-control(name="state", type='text', value=user.state)
     .form-group
       label(for='formGroupExampleInput2') Gender
-      input#formGroupGenderInput.form-control(name="gender", type='text', placeholder='Gender input')
+      input#formGroupGenderInput.form-control(name="gender", type='text', value=user.gender)
     .form-group
       label(for='formGroupExampleInput2') Dance
-      input#formGroupDanceInput.form-control(name="dance", type='text', placeholder='Dance input')
+      input#formGroupDanceInput.form-control(name="dance", type='text', value=user.dance)
     br
     br
     button.btn.btn-default(type='submit') Submit Changes
