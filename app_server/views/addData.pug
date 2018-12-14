@@ -4,22 +4,22 @@ block content
   h4  ADD SOME USERS 
     form(action='/signup', method='POST')
       .form-group
-        input.form-control(type='text', name='username', placeholder='Username')
-        input.form-control(type='text', name='firstname', placeholder='Name')
-        input.form-control(type='text', name='email', placeholder='Email')
-        input.form-control(type='password', name='password', placeholder='Password')
-        input.form-control(type='password', name='passwordRetype', placeholder='Retype password')
-        input.form-control(type='text', name='state', placeholder='State')
-        input.form-control(type='text', name='city', placeholder='City')
-        input.form-control(type='text', name='gender', placeholder='Gender')
-        input.form-control(type='text', name='dance', placeholder='Dance')
+        input.form-control(type='text', name='username', placeholder='Username' value="Dancer1")
+        input.form-control(type='text', name='firstname', placeholder='Name' value="Metka")
+        input.form-control(type='text', name='email', placeholder='Email' value="email@email.com")
+        input.form-control(type='password', name='password', placeholder='Password' value="geslo")
+        input.form-control(type='password', name='passwordRetype', placeholder='Retype password' value="geslo")
+        input.form-control(type='text', name='state', placeholder='State' value="Michigan")
+        input.form-control(type='text', name='city', placeholder='City' value="Detroit")
+        input.form-control(type='text', name='gender', placeholder='Gender' value="Female")
+        input.form-control(type='text', name='dance', placeholder='Dance' value="ballet")
         input.btn.btn-default(type='submit', name='signup-button', value='Add User')
   br
   h4  ADD SOME GROUPS
     form(action='/newgroup', method='POST')
       .form-group
         label(for='formGroupExampleInput') Group name
-        input#formGroupNameInput.form-control(name="groupName", type='text', placeholder='Name input')
+        input#formGroupNameInput.form-control(name="groupName", type='text', placeholder='Name input' value="group1")
       br
       button.btn.btn-default(type='submit') Create a group
   br
