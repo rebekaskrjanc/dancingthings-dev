@@ -110,22 +110,6 @@ module.exports.deleteUserReq = async function(req, res){
 
 };
 
-module.exports.deleteUserDB = async function(req, res){
-  var errorMsg;
-
-  await deleteCollection();
-
-  if(errorMsg){
-    res.render('index', {
-      title: 'neuspesno'
-    });
-  } else {
-    res.render('index');
-    title: 'uspesno'
-  }
-
-};
-
 async function deleteUser(id_user) {
   var path = '/users/' + id_user;
   var paramsReq = {
@@ -181,19 +165,3 @@ async function updateUser(body, id_user) {
     return error;
   }
 };
-
-
-async function deleteCollection() {
-  var path = '/users/deleteUserDB';
-  var paramsReq = {
-    url: envPath + path,
-    method: 'GET',
-    json: {},
-  };
-
-  try {
-    return await rp(paramsReq).promise();
-  } catch (error) {
-    return error;
-  }
-}
