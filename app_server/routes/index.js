@@ -31,7 +31,7 @@ router.post('/signup', ctrlSignup.signup);
 router.get('/creategroup', ctrlOstalo.creategroup);
 router.get('/db', ctrlOstalo.db);
 router.get('/addData', ctrlOstalo.addData);
-
+router.get('/regComplete', ctrlOstalo.regComplete);
 
 router.post('/newpost/:userId', ctrlNewPost.newpost);
 

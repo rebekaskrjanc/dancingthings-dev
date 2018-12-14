@@ -46,8 +46,8 @@ module.exports.signup = async function(req, res){
       error: errorMsg
     });
   } else {
-    res.render('index', { 
-      title: bool,
+    res.render('regComplete', { 
+      title: 'dodan',
     });
   }
 };

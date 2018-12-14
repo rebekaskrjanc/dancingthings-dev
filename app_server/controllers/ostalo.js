@@ -54,6 +54,9 @@ module.exports.db = function(req, res) {
 module.exports.addData = function(req, res) {
   res.render('addData', { title: 'Prikazi profil' });
 };
+module.exports.regComplete = function(req, res) {
+  res.render('regComplete', { title: 'Prikazi profil' });
+};
 
 
 
