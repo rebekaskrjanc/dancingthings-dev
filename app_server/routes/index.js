@@ -7,7 +7,7 @@ var ctrlMyProfile = require('../controllers/my-profile');
 var ctrlEditprofile = require('../controllers/editprofile');
 var ctrlNewPost = require('../controllers/newpost');
 var ctrlGroupActions = require('../controllers/groups');
-
+var ctrldeleteDB = require('../controllers/deleteDB');
 
 /* GET home page. */
 /* Lokacijske strani */
@@ -40,10 +40,14 @@ router.get('/myprofile/:userId', ctrlMyProfile.showMyProfile);
 router.get('/myprofile/:userId/edit', ctrlMyProfile.showEditProfile);
 router.post('/myprofile/:userId/edit', ctrlMyProfile.editProfile);
 router.get('/myprofile/:userId/deleteUser', ctrlMyProfile.deleteUserReq);
-router.get('/myprofile/deleteUserDB', ctrlMyProfile.deleteUserDB);
 
-//Group Actions
+
+//Group routes
 router.post('/newgroup', ctrlGroupActions.newgroup);
+
+//Delete DB routes
+router.get('/deleteUserDB', ctrldeleteDB.deleteUserDB);
+
 
 
 module.exports = router;
