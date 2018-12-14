@@ -33,7 +33,7 @@ router.get('/db', ctrlOstalo.db);
 router.get('/addData', ctrlOstalo.addData);
 
 
-router.post('/newpost', ctrlNewPost.newpost);
+router.post('/newpost/:userId', ctrlNewPost.newpost);
 
 // My profile routes
 router.get('/myprofile/:userId', ctrlMyProfile.showMyProfile);

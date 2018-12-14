@@ -54,32 +54,27 @@ module.exports.editProfile = async function(req, res) {
   var errorMsg;
   var user;
 
-  console.log('cccccccccccccc');
-
   user = await getCurrentUser(req.params.userId);
   if(user.error){
-    errorMsg = 'bbbbbbbbbbbbbb';
+    errorMsg = 'Couldnt get user with userId';
   }
 
   if(req.body){
     if(req.body.password != req.body.passwordRetype) {
       errorMsg = 'Password Retype must match Password!';
     }
-    if(req.body.username || req.body.email || req.body.dance) {
+    if(req.body.name || req.body.email || req.body.dance) {
       var userUpdate = await updateUser(req.body, user._id);
-      if(userUpdate.error) {
-        errorMsg = 'Updating user didnt succeed.';
-      } 
     } else {
       errorMsg = 'Fill out required inputs!'
     }
   } else {
-    errorMsg = 'Fill out required fields!';
+    errorMsg = 'Fill out required inputs!';
   }
 
   user = await getCurrentUser(req.params.userId);
   if(user.error){
-    errorMsg = 'aaaaaaaaaaaaaaaa';
+    errorMsg = 'Couldnt get user with userId';
   }
 
   if(errorMsg) {
@@ -97,8 +92,6 @@ module.exports.editProfile = async function(req, res) {
 module.exports.deleteUserReq = async function(req, res){
   var errorMsg;
   var user;
-
-  console.log('cccccccccccccc');
 
   user = await getCurrentUser(req.params.userId);
   if(user.error){
@@ -154,10 +147,9 @@ async function updateUser(body, id_user) {
     method: 'PUT',
     json: true,
     body: {
-      username: body.username,
       password: body.password,
       passwordRetype: body.passwordRetype,
-      name: body.name,
+      firstname: body.firstname,
       email: body.email,
       state: body.state,
       city: body.city,

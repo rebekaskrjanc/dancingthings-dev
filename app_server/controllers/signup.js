@@ -24,6 +24,7 @@ module.exports.signup = async function(req, res){
           username: req.body.username,
           firstname: req.body.firstname,
           password: req.body.password,
+          passwordRetype: req.body.passwordRetype,
           email: req.body.email,
           state: req.body.state,
           city: req.body.city,

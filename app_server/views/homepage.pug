@@ -10,7 +10,8 @@ block content
               .panel-heading
                 h3.panel-title Wall
               .panel-body
-                form(action='/newpost', method='POST')
+                - urlNewPost = '/newpost/' + currentActiveUser
+                form(action=urlNewPost, method='POST')
                   .form-group
                     textarea.form-control(name='vsebinaObjave', placeholder='Write on the wall')
                   button.btn.btn-default(type='submit') Submit

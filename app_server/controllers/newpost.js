@@ -18,7 +18,7 @@ module.exports.newpost = async function(req, res){
     json: true,
     body: {
       text: req.body.vsebinaObjave,
-      //postAuthor: 
+      postAuthor: req.params.userId,
       comments: []
     }
   };
