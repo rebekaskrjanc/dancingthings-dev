@@ -40,6 +40,7 @@ router.get('/myprofile/:userId', ctrlMyProfile.showMyProfile);
 router.get('/myprofile/:userId/edit', ctrlMyProfile.showEditProfile);
 router.post('/myprofile/:userId/edit', ctrlMyProfile.editProfile);
 router.get('/myprofile/:userId/deleteUser', ctrlMyProfile.deleteUserReq);
+router.get('/myprofile/deleteUserDB', ctrlMyProfile.deleteUserDB);
 
 //Group Actions
 router.post('/newgroup', ctrlGroupActions.newgroup);

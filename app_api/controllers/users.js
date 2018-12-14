@@ -6,6 +6,10 @@ var vrniJsonOdgovor = function(res, status, data) {
   res.json(data);
 };
 
+module.exports.deleteUserDB = function(req, res) {
+  
+  return User.remove({});
+};
 module.exports.getUsers = function(req, res) {
   User
     .find()
