@@ -46,7 +46,7 @@ module.exports.signup = async function(req, res){
     });
   } else {
     res.render('index', { 
-      title: req.body.firstname,
+      title: bool,
     });
   }
 };

@@ -53,3 +53,15 @@ function getDbUri() {
 require('./users');
 require('./posts');
 require('./groups');
+
+function dropUsers() {
+  return User.remove({});
+}
+
+function dropLectures() {
+  return Lecture.remove({});
+}
+
+function dropLecturesRequests() {
+  return LecturesRequest.remove({});
+}
