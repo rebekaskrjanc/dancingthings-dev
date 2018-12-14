@@ -25,7 +25,9 @@ router.get('/users/deleteUserDB', // get all users
   ctrlUsers.deleteUserDB);
 
 
-// POSTS routes  
+// POSTS routes
+router.get('/posts', ctrlPosts.getPosts);
+
 router.get('/posts/:postId', 
   ctrlPosts.getPost);
 

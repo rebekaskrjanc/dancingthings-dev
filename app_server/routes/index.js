@@ -7,14 +7,7 @@ var ctrlMyProfile = require('../controllers/my-profile');
 var ctrlEditprofile = require('../controllers/editprofile');
 var ctrlNewPost = require('../controllers/newpost');
 var ctrlGroupActions = require('../controllers/groups');
-
-
-/* GET home page. */
-/* Lokacijske strani */
-router.get('/', ctrlLokacije.seznam);
-router.get('/lokacija', ctrlLokacije.podrobnostiLokacije);
-router.get('/lokacija/komentar/nov', ctrlLokacije.dodajKomentar);
-
+var ctrlIndexPage = require('../controllers/indexPage');
 
 /* Ostale strani */
 router.get('/informacije', ctrlOstalo.informacije);
@@ -23,7 +16,7 @@ router.get('/members', ctrlOstalo.members);
 router.get('/groups', ctrlOstalo.groups);
 router.get('/photos', ctrlOstalo.photos);
 router.get('/homepage', ctrlOstalo.homepage);
-router.post('/comments', ctrlOstalo.comments);
+//router.post('/comments', ctrlOstalo.comments);
 //router.get('/editprofile', ctrlOstalo.editprofile);
 router.get('/signup', ctrlOstalo.signupRender);
 router.post('/signup', ctrlSignup.signup);
@@ -33,6 +26,10 @@ router.get('/db', ctrlOstalo.db);
 router.get('/addData', ctrlOstalo.addData);
 router.get('/regComplete', ctrlOstalo.regComplete);
 
+/* Index page routes. */
+router.get('/', ctrlIndexPage.getIndexPage);
+
+// Post routes
 router.post('/newpost/:userId', ctrlNewPost.newpost);
 
 // My profile routes
@@ -45,6 +42,8 @@ router.get('/myprofile/deleteUserDB', ctrlMyProfile.deleteUserDB);
 //Group Actions
 router.post('/newgroup', ctrlGroupActions.newgroup);
 
+//COMMENT routes
+//router.post('/comment/:postId/addcomment/:commentAuthor', ctrlIndexPage.addComment);
 
 module.exports = router;
 

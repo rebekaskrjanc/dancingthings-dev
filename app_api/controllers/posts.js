@@ -7,6 +7,19 @@ var vrniJsonOdgovor = function(res, status, data) {
   res.json(data);
 };
 
+module.exports.getPosts = function(req, res) {
+  Post
+    .find()
+    .exec(function(error, users){
+      if(error) {
+        vrniJsonOdgovor(res, 500, error);
+        return;
+      } else {
+        vrniJsonOdgovor(res, 200, users);
+      }
+    });
+};
+
 module.exports.getPost = function(req, res) {
   if(req.params && req.params.postId) {
     Post
