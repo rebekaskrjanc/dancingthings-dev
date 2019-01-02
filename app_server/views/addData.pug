@@ -24,7 +24,7 @@ block content
       button.btn.btn-default(type='submit') Create a group
   br
   h4 ADD SOME POSTS
-    form(action='/newpost', method='POST')
+    form(action='/newpost/' + currentActiveUser, method='POST')
       .form-group
         textarea.form-control(name='vsebinaObjave', placeholder='Write on the wall')
       button.btn.btn-default(type='submit') Submit

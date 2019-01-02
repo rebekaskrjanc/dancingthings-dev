@@ -1,3 +1,9 @@
+/* Vrni stran z Angular SPA */
+module.exports.angularApp = function(req, res) {
+  res.render('layout', {
+    title: 'DancingThings'
+  });
+};
 /* Vrni stran s podrobnostmi*/
 module.exports.informacije = function(req, res) {
   res.render('index', { title: 'Informacije o aplikaciji' });

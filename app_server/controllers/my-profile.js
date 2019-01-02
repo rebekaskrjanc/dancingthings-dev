@@ -63,7 +63,7 @@ module.exports.editProfile = async function(req, res) {
     if(req.body.password != req.body.passwordRetype) {
       errorMsg = 'Password Retype must match Password!';
     }
-    if(req.body.name || req.body.email || req.body.dance) {
+    if(req.body.firstname || req.body.email || req.body.dance) {
       var userUpdate = await updateUser(req.body, user._id);
     } else {
       errorMsg = 'Fill out required inputs!'

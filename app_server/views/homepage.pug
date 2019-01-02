@@ -9,7 +9,7 @@ block content
             .panel.panel-default
               .panel-heading
                 h3.panel-title Wall
-              .panel-body
+              .panel-body(ng-repeat="objava in data.objave")
                 - urlNewPost = '/newpost/' + currentActiveUser
                 form(action=urlNewPost, method='POST')
                   .form-group
@@ -27,43 +27,40 @@ block content
                         i.fas.fa-video
                         |  Video
 
-            ul.postListing  
-              each post in posts
-                li           
+            ul.postListing(ng-controller="seznamObjavCtrl")  
+                li(ng-repeat="objava in data.objave")         
                   .panel.panel-default.post
                     .panel-body
                       .row
-                        .col-sm-2
+                        .col-sm-2  
                           a.post-avatar.thumbnail(href='images/user-default.jpg')
                             img(src='images/user-default.jpg')
-                            .text-center #{post.postAuthor}
+                            .text-center {{ objava.postAuthor }}
                           .likes.text-center 7 Likes
                         // col-sm-2 end
                         .col-sm-10
                           .bubble
                             .pointer
-                              p
-                                | #{post.text}
+                              p {{ objava.text }}
                             .pointer-border
                           // bubble end
                           p.post-actions
                             a(href='#') Like
                           .comment-form
-                            - urlCommentAdd = '/comment/' + post._id + '/addcomment/' + currentActiveUser
+                            - urlCommentAdd = '/comment/' + '5bf3edfbd43e2e4187d0b2a3' + '/addcomment/' + currentActiveUser
                             form.form-inline(action=urlCommentAdd, method='POST')
                               .form-group
                                 input#exampleInputName2.form-control(type='text', name="vsebinaKomentarja" placeholder='Enter Comment')
                               button.btn.btn-default(type='submit') Add
                           // comment form end
                           .clearfix
-                          .comments
+                          .comments(ng-repeat="comment in objava.comments")
                             ul.postListing
-                              each comment in post.comments
                                 .comment
                                   a.comment-avatar.pull-left(href='#')
                                     img(src='images/user-default.jpg')
                                   .comment-text
-                                    p #{comment.commentText}
+                                    p {{ comment.commentText }}
                                 .clearfix
             
           // col-md-8 end

@@ -1,0 +1,29 @@
+<div class="modal-content">
+  <form id="ustvariSkupino" name="ustvariSkupino" ng-submit="vm.posiljanjePodatkov()" role="form" class="form-horizontal" >
+    <div class="modal-header">
+      <button type="button" ng-click="vm.modalnoOknoGroups.preklici()" class="close">
+        <span aria-hidden="true">x</span><span class="sr-only">Zapri</span>
+      </button>
+      <h4 id="oznakaModalnegaOkna" class="modal-title">Create a new group</h4>
+    </div>
+    <div class="modal-body">
+      <div role="alert" ng-show="vm.napakaNaObrazcu" class="alert alert-danger">{{ vm.napakaNaObrazcu }}</div>
+      <div class="form-group">
+        <label for="groupName" class="col-xs-10 col-sm-2 control-label">Group name</label>
+        <div class="col-xs-12 col-sm-10">
+          <input id="groupName" required="required" ng-model="vm.podatkiObrazca.groupName" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="about" class="col-sm-2 control-label">About</label>
+        <div class="col-sm-10">
+          <textarea id="about" name="about" rows="5" required="required" ng-model="vm.podatkiObrazca.about" class="form-control"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button ng-click="vm.modalnoOknoGroups.preklici()" type="button" class="btn btn-default btn-sm">Prekliči</button>
+      <button type="submit" class="btn btn-primary btn-sm">Create Group</button>
+    </div>
+  </form>
+</div>

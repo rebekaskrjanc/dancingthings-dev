@@ -1,5 +1,5 @@
 doctype html
-html
+html 
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -8,7 +8,7 @@ html
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.4.1/css/all.css', integrity='sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz', crossorigin='anonymous')
-  body
+  body(ng-app='dancingthings')
     - currentActiveUser = '5c12bf2710407081628aeddb'
     header
       .container
@@ -41,13 +41,20 @@ html
               - urlMyProfile = '/myprofile/' + currentActiveUser
               a(href=urlMyProfile) My Profile
 
-   
+    
     .container
-      block content
+      div(ng-view)
+        block content
 
     footer
       .container
         p Dancing Things Copyright © 2018, All Rights Reserved
 
+  script(src='/angular/angular.min.js') 
+  script(src='/lib/angular-route.min.js')
+  script(src='/angular/dancingthings.min.js')
+  //script(src='/app.js') 
+  //script(src='/skupno/storitve/dancingthingsPodatki.storitev.js') 
+  //script(src='/homepage/homepage.krmilnik.js') 
   script(src='/javascripts/jquery-3.3.1.min.js')
   script(src='/bootstrap/js/bootstrap.min.js')

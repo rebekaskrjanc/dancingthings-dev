@@ -1,0 +1,34 @@
+<header>
+  <glava></glava>
+</header>
+<navigacija></navigacija>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="members">
+          <h1 class="page-header">Members</h1>
+          <div ng-if="vm.users.length === 0">
+            <p>Hmm... it seems like Dancing Things has no members yet.</p>
+          </div>
+          <div class="row member-row" ng-repeat="user in vm.users">
+            <div class="col-md-3">
+              <img src="images/user-default.jpg" class="img-thumbnail">
+              <div class="text-center">{{ user.username }}</div>
+            </div>
+            <div class="col-md-3">
+              <p><a href="#" class="btn btn-success btn-block"><i class="fa fa-users"></i> Add Friend</a></p>
+            </div>
+            <div class="col-md-3">
+              <p><a href="#" class="btn btn-default btn-block"><i class="fa fa-envelope"></i> Send Message</a></p>
+            </div>
+            <div class="col-md-3">
+              <p><a href="#" class="btn btn-primary btn-block"><i class="fa fa-edit"></i> View Profile</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<noga></noga>

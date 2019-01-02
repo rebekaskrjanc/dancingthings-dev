@@ -1,0 +1,26 @@
+<header>
+  <glava></glava>
+</header>
+<navigacija></navigacija>
+<section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="groups">
+              <h1 class="page-header">Groups</h1>
+              <div ng-if="vm.groups.length === 0">
+                <p>Hmm... it seems like there are no groups yet. Do you want to create one?</p>
+                <p><a ng-click="vm.groupUI()" class="btn btn-success">Create Group</a></p>
+              </div>
+              <div class="group-item" ng-repeat="group in vm.groups">
+                <img src="images/group.png">
+                <h4><a href="#">{{ group.groupName }}</a></h4>
+                <p>{{ group.about }}</p>
+                <p><a href="#" class="btn btn-default">Join Group</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <noga></noga>

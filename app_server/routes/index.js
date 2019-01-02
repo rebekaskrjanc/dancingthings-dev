@@ -10,6 +10,9 @@ var ctrlGroupActions = require('../controllers/groups');
 var ctrlIndexPage = require('../controllers/indexPage');
 var ctrldeleteDB = require('../controllers/deleteDB');
 
+/* Lokacijske strani */
+router.get('/', ctrlOstalo.angularApp);
+	
 /* Ostale strani */
 router.get('/informacije', ctrlOstalo.informacije);
 //router.get('/profil', ctrlOstalo.profil);
@@ -27,8 +30,7 @@ router.get('/db', ctrlOstalo.db);
 router.get('/addData', ctrlOstalo.addData);
 router.get('/regComplete', ctrlOstalo.regComplete);
 
-/* Index page routes. */
-router.get('/', ctrlIndexPage.getIndexPage);
+
 
 // Post routes
 router.post('/newpost/:userId', ctrlNewPost.newpost);
