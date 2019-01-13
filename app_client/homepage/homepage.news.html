@@ -122,4 +122,41 @@
     </div>
   </section>
 </div>
+<!-- pagination -->
+<div ng-if="vm.pageNumber === 1" class="text-center">
+  <nav aria-label="Page navigation">
+      <ul class="pagination">
+          <li>
+          <a aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+          </a>
+          </li>
+          <li><a>{{ vm.currPage }} / {{ vm.pageNumber }}</a></li>
+          <li>
+          <a aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+          </a>
+          </li>
+      </ul>
+  </nav>
+</div>
+<div ng-if="vm.pageNumber > 1" class="text-center">
+  <nav aria-label="Page navigation">
+      <ul class="pagination">
+          <li>
+          <a ng-click="vm.prevPage()" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+          </a>
+          </li>
+          <li><a>{{ vm.currPage }} / {{ vm.pageNumber }}</a></li>
+          <li>
+          <a ng-click="vm.nextPage()" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+          </a>
+          </li>
+      </ul>
+  </nav>
+</div>
+
+<!-- end of pagination -->
 <noga></noga>

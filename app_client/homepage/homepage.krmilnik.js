@@ -9,13 +9,38 @@
       search: '',
       page: 0
     }
+    vm.currPage=1;
     
-    vm.pridobiPodatke = function() {
+    vm.pridobiPodatke = function(currPage) {
       vm.sporocilo = "Iščem bližnje lokacije.";
-
+      vm.pageNumber=1;
+      vm.mejaUp=currPage*10;
+      vm.mejaDown=vm.mejaUp-10;
+      vm.objave=[];
+      console.log(vm.mejaDown, vm.mejaUp);
       dancingthingsPodatki.vsebinaObjave().then(
         function success(odgovor) {
-          vm.objave=odgovor.data;
+          vm.objavePredFiltrom=odgovor.data;
+          l=vm.objavePredFiltrom.length;
+          while(l>10) {
+            l-=10;
+            vm.pageNumber+=1;
+          }
+          if(vm.mejaUp>vm.objavePredFiltrom.length){
+            console.log("prvi");
+            var i;
+            for(i=vm.mejaDown; i<vm.objavePredFiltrom.length; i++){
+              vm.objave.push(vm.objavePredFiltrom[i]);
+            }
+          }
+          else {
+            console.log("drugi");
+            var r;
+            for(r=vm.mejaDown; r<vm.mejaUp; r++){
+              vm.objave.push(vm.objavePredFiltrom[r]);
+            }
+          }
+          
           var h;
           for (h=0; h<vm.objave.length; h++) {
             coms=vm.objave[h].comments+'';
@@ -29,7 +54,18 @@
         }
       );
     };
-    vm.pridobiPodatke();
+    vm.pridobiPodatke(vm.currPage);
+
+    vm.prevPage = function() {
+      vm.currPage-=1;
+      vm.pridobiPodatke(vm.currPage);
+    }
+    vm.nextPage = function() {
+      vm.currPage+=1;
+      vm.pridobiPodatke(vm.currPage);
+    }
+
+
 
     vm.postUI = function(id, text) {
       var primerekModalnegaOkna = $uibModal.open({
