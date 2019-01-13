@@ -41,6 +41,12 @@
           <label for="dance">Ples</label>
           <input ng-model="vm.prijavniPodatki.dance" type="text" class="form-control" id="dance" placeholder="Dance">
         </div>
+        <div class="recaptcha" 
+             vc-recaptcha 
+             ng-model="vm.prijavniPodatki.recaptchaResponse" 
+             lang="en" 
+             key="'6LflaIkUAAAAAMi928XtAwG6xbPKaTTaDHvKhbqC'">
+        </div>
         <button type="submit" class="btn btn-default">Registriraj!</button>
       </form>
     </div>

@@ -54,6 +54,6 @@
   
   /* global angular */
   angular
-  	.module('dancingthings', ['ngRoute', 'ngSanitize', 'ui.bootstrap'])
+    .module('dancingthings', ['ngRoute', 'ngSanitize', 'ui.bootstrap', 'vcRecaptcha'])
     .config(['$routeProvider', '$locationProvider', nastavitev]);
 })();
