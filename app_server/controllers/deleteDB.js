@@ -1,6 +1,6 @@
 var rp = require('request-promise');
 var mongoose = require('mongoose');
-var User = mongoose.model('User');
+var User = mongoose.model('prijavaUser');
 var Group = mongoose.model('Group');
 var Post = mongoose.model('Post');
 var envPath;

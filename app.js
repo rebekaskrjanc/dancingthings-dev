@@ -15,6 +15,7 @@ var zdruzeno = uglifyJs.minify({
   'members.krmilnik.js': fs.readFileSync('app_client/members/members.krmilnik.js', 'utf-8'),
   'registracija.krmilnik.js': fs.readFileSync('app_client/avtentikacija/registracija/registracija.krmilnik.js', 'utf-8'),
   'prijava.krmilnik.js': fs.readFileSync('app_client/avtentikacija/prijava/prijava.krmilnik.js', 'utf-8'),
+  'db.krmilnik.js': fs.readFileSync('app_client/db/db.krmilnik.js', 'utf-8'),
   'myprofile.krmilnik.js': fs.readFileSync('app_client/myprofile/myprofile.krmilnik.js', 'utf-8'),
   'komentarModalnoOkno.krmilnik.js': fs.readFileSync('app_client/komentarModalnoOkno/komentarModalnoOkno.krmilnik.js', 'utf-8'),
   'groupModalnoOkno.krmilnik.js': fs.readFileSync('app_client/groupModalnoOkno/groupModalnoOkno.krmilnik.js', 'utf-8'),

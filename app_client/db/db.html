@@ -3,9 +3,50 @@
 </header>
 <navigacija></navigacija>
 <div class="container">
-	<br/>
-	<h3>Delete all elements from collections or add new elements to them.</h3>
-	<a class="btn btn-danger" href="/deleteUserDB">Delete</a>
-	<a class="btn btn-success" href="/addData">Add Data </a>
+	<div class="col-md-6">
+	<!--<h4> ADD SOME USERS</h4>
+	<form ng-submit="vm.posiljanjePodatkov(vm.prijavniPodatki.dance)">
+  		<div class="form-group">
+	    <input ng-model="vm.prijavniPodatki.username" class="form-control" type="text" name="username" placeholder="Username" value="Dancer1"/>
+	    <input ng-model="vm.prijavniPodatki.firstname" class="form-control" type="text" name="firstname" placeholder="Name" value="Metka"/>
+	    <input ng-model="vm.prijavniPodatki.email" class="form-control" type="text" name="email" placeholder="Email" value="email@email.com"/>
+	    <input ng-model="vm.prijavniPodatki.password" class="form-control" type="password" name="password" placeholder="Password" value="geslo"/>
+	    <input ng-model="vm.prijavniPodatki.password2" class="form-control" type="password" name="passwordRetype" placeholder="Retype password" value="geslo"/>
+	    <input ng-model="vm.prijavniPodatki.state" class="form-control" type="text" name="state" placeholder="State" value="Michigan"/>
+	    <input ng-model="vm.prijavniPodatki.city" class="form-control" type="text" name="city" placeholder="City" value="Detroit"/>
+	    <input ng-model="vm.prijavniPodatki.dance" class="form-control" type="text" name="dance" placeholder="Dance" value="ballet"/>
+	    <button class="btn btn-success" type="submit">Submit User</button>
+	  </div>
+	</form>-->
+		<br>
+		<h4> ADD SOME GROUPS</h4>
+		<form ng-submit="vm.posiljanjePodatkovSkupine()">
+		    <div class="form-group">
+		        <label for="formGroupExampleInput">Group name</label>
+		        <input class="form-control" id="groupName" name="groupName" type="text" placeholder="Name of the group" ng-model="vm.groupName" value="group1"/>
+		    </div>
+		    <div class="form-group">
+		        <label for="formGroupExampleInput">Group name</label>
+		        <input class="form-control" id="aboutGroup" name="aboutGroup" type="text" placeholder="About your group" ng-model="vm.aboutGroup" value="group1"/>
+		    </div>
+			<button class="btn btn-success" type="submit">Create Group</button>
+		</form>
+	</div>
+	<div class="col-md-6">
+		<br>
+		<h4> ADD SOME POSTS</h4>
+		<form ng-submit="vm.novaObjava()">
+		    <div class="form-group">
+		        <label for="formGroupExampleInput">Post</label>
+		        <input class="form-control" id="vsebinaObjave" name="vsebinaObjave" type="text" placeholder="Content" ng-model="vm.vsebinaObjave" value="Content"/>
+		    </div>
+		    <button class="btn btn-success" type="submit">Submit Post</button>
+		</form>
+	</div>
+</div>
+<br>
+<div class="container">
+	<h3>Delete all elements from collections.</h3>
+	<a class="btn btn-danger" ng-click="vm.deleteDB()">Delete</a>
 </div>
 <noga></noga>

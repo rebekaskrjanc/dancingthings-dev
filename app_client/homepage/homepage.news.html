@@ -33,7 +33,8 @@
           <div ng-if="vm.objave.length === 0">
             <p ng-show="vm.jePrijavljen">Hmm... it seems like there are no posts yet.</p>
           </div>
-          <div ng-show="vm.jePrijavljen" class="panel panel-default post" ng-repeat="objava in vm.objave | filter: filterRezultatov">
+          <div ng-show="vm.jePrijavljen" class="panel panel-default post" 
+          ng-repeat="objava in vm.objave">
             <div class="panel-body">
               <div class="row">
                 <div class="col-sm-2">
