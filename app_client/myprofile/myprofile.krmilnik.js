@@ -1,20 +1,16 @@
 (function() {
-  function membersCtrl($scope, $location, $uibModal, dancingthingsMembers, avtentikacija) {
+  function myprofileCtrl($scope, $location, $uibModal, dancingthingsMembers, avtentikacija) {
   	var vm = this;
     vm.jePrijavljen = avtentikacija.jePrijavljen();
     vm.prvotnaStran = $location.path();
-    vm.id=0;
-    vm.name='';
-    vm.trenutniUporabnik = avtentikacija.trenutniUporabnik();
-    console.log(vm.trenutniUporabnik);
-
     vm.glavaStrani = {
-    
-
       naslov: 'EduGeoCache',
       podnaslov: 'Poiščite zanimive lokacije blizu vas!'
     };
+    vm.users;
+    vm.stranskaOrodnaVrstica = 'Iščete lokacijo za kratkočasenje? EduGeoCache vam pomaga pri iskanju zanimivih lokacij v bližini. Mogoče imate kakšne posebne želje? Naj vam EduGeoCache pomaga pri iskanju bližnjih zanimivih lokacij.';
     vm.pridobiUporabnike = function() {
+
       dancingthingsMembers.allMembers().then(
         function success(odgovor) {
           vm.users=odgovor.data;
@@ -25,17 +21,10 @@
         }
       );
     };
-
     vm.pridobiUporabnike();
 
-    vm.editProfileUI = function(u, v) {
-      vm.name=v;
-      var i;
-      for (i = 0; i < u.length; i++) { 
-        if (u[i].username==v)
-          vm.id=u[i]._id;
-          
-      }
+    vm.editProfileUI = function(id, name) {
+      console.log("bemts",id);
       var primerekModalnegaOknaEdit = $uibModal.open({
         templateUrl: '/editProfileModalnoOkno/editProfileModalnoOkno.html',
         controller: 'editProfileModalnoOkno',
@@ -43,33 +32,32 @@
         resolve: {
           podrobnostiUporabnika: function() {
             return {
-              idUporabnika: vm.id
+              idUporabnika: id
             };
           }
         }
       });
       primerekModalnegaOknaEdit.result.then(function(podatki) {
-        if (typeof podatki != 'undefined') 
-          console.log("edit podatki",podatki);
-          vm.trenutniUporabnik.username=podatki.username,
-          vm.trenutniUporabnik.email=podatki.email
-          console.log("spremenjen user",vm.trenutniUporabnik);
+        if (typeof podatki != 'undefined')
           var i;
-          for (i = 0; i < vm.users.length; i++) { 
-            if (vm.users[i].username==v) 
+          for (i = 0; i < vm.groups.length; i++) { 
+            if (vm.users[i]._id==id) {
               vm.users[i].username= podatki.username,
               vm.users[i].email= podatki.email
+            }
           }
+          //vm.groups.push(podatki);
         }, function(napaka) {
           // Ulovi dogodek in ne naredi ničesar
         });
     };
     return vm;
   }
-  membersCtrl.$inject = ['$scope', '$location', '$uibModal', 'dancingthingsMembers', 'avtentikacija'];
+  
+  myprofileCtrl.$inject = ['$scope', '$location', '$uibModal', 'dancingthingsMembers', 'avtentikacija'];
 
   /* global angular */
   angular
     .module('dancingthings')
-    .controller('membersCtrl', membersCtrl);
+    .controller('myprofileCtrl', myprofileCtrl);
 })();

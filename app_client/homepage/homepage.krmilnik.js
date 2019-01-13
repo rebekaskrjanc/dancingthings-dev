@@ -1,32 +1,11 @@
 (function() {
-  function homepageCtrl($scope, $uibModal, dancingthingsPodatki) {
+  function homepageCtrl($scope, $location, $uibModal, dancingthingsPodatki, avtentikacija) {
   	var vm = this;
-    vm.glavaStrani = {
-
-      naslov: 'EduGeoCache',
-      podnaslov: 'Poiščite zanimive lokacije blizu vas!'
-    };
-
-    vm.stranskaOrodnaVrstica = 'Iščete lokacijo za kratkočasenje? EduGeoCache vam pomaga pri iskanju zanimivih lokacij v bližini. Mogoče imate kakšne posebne želje? Naj vam EduGeoCache pomaga pri iskanju bližnjih zanimivih lokacij.';
-    //vm.objava = {
-    //  text: 'Prva objava v Angular'
-    //}
-    vm.sporocilo = "Pridobivam trenutno lokacijo.";
-
-    vm.prikaziPojavnoOknoObrazca = function() {
-      $uibModal.open({
-        templateUrl: '/komentarModalnoOkno/komentarModalnoOkno.pogled.html',
-        controller: 'komentarModalnoOkno',
-        controllerAs: 'vm',
-        
-      });
-    
-      //alert("Dodajmo komentar!");
-    };
+    vm.jePrijavljen = avtentikacija.jePrijavljen();
+    vm.prvotnaStran = $location.path();
+    vm.trenutniUporabnik = avtentikacija.trenutniUporabnik();
 
     vm.pridobiPodatke = function() {
-      console.log("kr")
-      //var text = objava.text;
       vm.sporocilo = "Iščem bližnje lokacije.";
 
       dancingthingsPodatki.vsebinaObjave().then(
@@ -39,12 +18,55 @@
         }
       );
     };
-
     vm.pridobiPodatke();
 
+    vm.postUI = function(id, text) {
+      var primerekModalnegaOkna = $uibModal.open({
+        templateUrl: '/postModalnoOkno/postModalnoOkno.html',
+        controller: 'postModalnoOkno',
+        controllerAs: 'vm',
+        resolve: {
+          podrobnostiObjave: function() {
+            return {
+              idObjave: id,
+              vsebina: text
+            };
+          }
+        }
+      });
+      primerekModalnegaOkna.result.then(function(podatki) {
+        if (typeof podatki != 'undefined')
+          var i;
+          for (i = 0; i < vm.objave.length; i++) { 
+            if (vm.objave[i]._id==id)
+              vm.objave[i].text= podatki.text,
+              vm.objave[i].postAuthor= podatki.postAuthor
+          }
+          vm.pridobiPodatke();
+        }, function(napaka) {
+          // Ulovi dogodek in ne naredi ničesar
+        });
+    };
+
+    vm.novaObjava = function(){
+      dancingthingsPodatki.newPost({
+        text: vm.podatkiObrazca.text,
+        imeUporabnika: vm.trenutniUporabnik.username
+        
+      }).then(
+        function success(odgovor) {
+          console.log("uspešno");
+          vm.pridobiPodatke();
+        },
+        function error(odgovor) {
+          console.log("neuspešno", odgovor);
+        }
+      );
+
+    }
     return vm;
   }
-  homepageCtrl.$inject = ['$scope', '$uibModal', 'dancingthingsPodatki'];
+  homepageCtrl.$inject = ['$scope', '$location', '$uibModal', 'dancingthingsPodatki', 'avtentikacija'];
 
   /* global angular */
   angular

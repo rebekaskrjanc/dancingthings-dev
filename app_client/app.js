@@ -19,12 +19,27 @@
       })
       .when('/myprofile', {
         templateUrl: 'myprofile/pogledi/myprofile.pogled.html',
-        //controller: 'myprofileCtrl',
+        controller: 'membersCtrl',
         controllerAs: 'vm'
       })
       .when('/signup', {
         templateUrl: 'signup/pogledi/signup.pogled.html',
         //controller: 'signupCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/registracija', {
+        templateUrl: '/avtentikacija/registracija/registracija.pogled.html',
+        controller: 'registracijaCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/prijava', {
+      templateUrl: '/avtentikacija/prijava/prijava.pogled.html',
+      controller: 'prijavaCtrl',
+      controllerAs: 'vm'
+      })
+      .when('/logout', {
+        templateUrl: '/logout/logout.pogled.html',
+        //controller: 'registracijaCtrl',
         controllerAs: 'vm'
       })
       .otherwise({redirecTo: '/'});

@@ -45,8 +45,8 @@ module.exports.getGroup = function(req, res){
 module.exports.createGroup = function(req, res) {
   Group.create({
     groupName: req.body.groupName,
-    admin: req.body.admin, //spremeni ko usposobiš userId
-    about: req.body.about
+    about: req.body.about,
+    groupAdmin: req.body.groupAdmin
 
   }, function(error, group) {
     if (error) {
@@ -58,14 +58,14 @@ module.exports.createGroup = function(req, res) {
 };
 
 module.exports.updateGroup = function(req, res) {
-  console.log(req.params.groupId);
+  console.log("AAAA");
   if(req.params && req.params.groupId) {
       Group
         .update(
           { _id: mongoose.Types.ObjectId(req.params.groupId)},
           { $set: req.body}
         ).then(function(newRes){
-          vrniJsonOdgovor(res, 200, null);
+          vrniJsonOdgovor(res, 200, req.body);
         }).catch(function(error){
           vrniJsonOdgovor(res, 500, error);
         });

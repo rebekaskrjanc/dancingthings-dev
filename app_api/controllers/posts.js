@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var Post = mongoose.model('Post');
+var Uporabnik = mongoose.model('prijavaUser');
 
 var vrniJsonOdgovor = function(res, status, data) {
   res.status(status);
@@ -44,26 +45,19 @@ module.exports.getPost = function(req, res) {
   }
 };
 
-module.exports.createPost = function(req, res) {
-  var userId = req.body.postAuthor;
-  req.body.postAuthor = mongoose.Types.ObjectId(req.body.postAuthor);
-  Post
-    .create(req.body)
-    .then(function(post){
-      User.updateOne(
-        {_id: userId},
-        {$push: { posts: post._id}}
-      ).then(function(newRes){
-        vrniJsonOdgovor(res, 201, post);
-      }).catch(function(error){
-        vrniJsonOdgovor(res, 500, error);
-        return;
-      })
-    })
-    .catch(function(error){
+module.exports.createPost = function(req, res) { 
+  Post.create({
+      text: req.body.text,
+      postAuthor: req.body.imeUporabnika
+
+  }, function(error, post) {
+    if (error) {
+      console.log(error);
       vrniJsonOdgovor(res, 400, error);
-      return;
-    });
+    } else {
+      vrniJsonOdgovor(res, 201, post);
+    }
+  });
 };
 
 module.exports.updatePost = function(req, res) {
@@ -78,7 +72,7 @@ module.exports.updatePost = function(req, res) {
           { _id: mongoose.Types.ObjectId(req.params.postId)},
           { $set: req.body}
         ).then(function(newRes){
-          vrniJsonOdgovor(res, 200, null);
+          vrniJsonOdgovor(res, 200, req.body);
         }).catch(function(error){
           vrniJsonOdgovor(res, 500, error);
         });
@@ -109,5 +103,31 @@ module.exports.deletePost = function(req, res){
       "sporočilo": 
         "Ne najdem posta, postId je obvezen parameter."
     });
+  }
+};
+
+var vrniAvtorja = function(zahteva, odgovor, povratniKlic) {
+  if (zahteva.payload && zahteva.payload.email) {
+    Uporabnik
+      .findOne({
+        email: zahteva.payload.email
+      })
+      .exec(function(napaka, uporabnik) {
+        if (!uporabnik) {
+          vrniJsonOdgovor(odgovor, 404, {
+            "sporočilo": "Ne najdem uporabnika"
+          });
+          return;
+        } else if (napaka) {
+          vrniJsonOdgovor(odgovor, 500, napaka);
+          return;
+        }
+        povratniKlic(zahteva, odgovor, uporabnik.ime);
+      });
+  } else {
+    vrniJsonOdgovor(odgovor, 400, {
+      "sporočilo": "Ni podatka o uporabniku"
+    });
+    return;
   }
 };

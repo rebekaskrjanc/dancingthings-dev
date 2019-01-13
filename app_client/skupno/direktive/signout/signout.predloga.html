@@ -1,0 +1,16 @@
+<div class="vrsta">
+  <div class="stolpec">
+    <img src="images/572a38ebf362e1605f3d8996c4421bc4.jpg" alt="Ballet">
+    <li ng-hide="navvm.jePrijavljen"><a id="myButton1" class="btn btn-default" href="/prijava?stran={{ navvm.trenutnaLokacija }}">Sign in</a></li>
+    <li id="myButton1" ng-show="navvm.jePrijavljen" class="dropdown">
+    	<a href="" class="dropdown-toggle" data-toggle="dropdown">{{ navvm.trenutniUporabnik.ime }} <span class="caret"></span></a>
+    	<ul class="dropdown-menu" role="menu">
+      	<li><a href="" ng-click="navvm.odjava()">Odjava</a></li>
+    	</ul>
+  	</li>
+  </div>
+  <div class="stolpec">
+    <img src="images/b29707996dc218750662ddc6e4f15c5f.jpg" alt="Modern">
+    <a id="myButton2" class="btn btn-default" href="/prijava">Sign up</a>
+  </div>
+</div>

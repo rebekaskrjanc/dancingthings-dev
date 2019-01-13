@@ -1,0 +1,26 @@
+<header>
+  <glava></glava>
+</header>
+<navigacija></navigacija>
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <p class="lead">Še niste registrirani uporabnik? Prosim <a href="/registracija?stran={{ vm.prvotnaStran }}">registrirajte</a> se.</p>
+      <form ng-submit="vm.posiljanjePodatkov()" autocomplete="off">
+        <div role="alert" ng-show="vm.napakaNaObrazcu" class="alert alert-danger">{{ vm.napakaNaObrazcu }}</div>
+        <div class="form-group">
+          <label for="email">Elektronski naslov</label>
+          <input type="email" class="form-control" id="email" placeholder="Vnesite elektronski naslov" ng-model="vm.prijavniPodatki.email">
+        </div>
+        <div class="form-group">
+          <label for="password">Geslo</label>
+          <input type="password" class="form-control" id="password" placeholder="Geslo" ng-model="vm.prijavniPodatki.password">
+        </div>
+        <button type="submit" class="btn btn-default btn-sm">Prijava!</button>
+      </form>
+    </div>
+  </div>
+  
+  <noga></noga>
+</div>

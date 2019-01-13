@@ -1,6 +1,11 @@
 (function() {
-  function groupModalnoOkno($uibModalInstance, dancingthingsGroups) {
+  function groupModalnoOkno($location, $uibModalInstance, dancingthingsGroups, avtentikacija) {
+
     var vm = this;
+    vm.trenutnaLokacija = $location.path();
+    vm.jePrijavljen = avtentikacija.jePrijavljen();
+    
+    vm.trenutniUporabnik = avtentikacija.trenutniUporabnik();
 
     vm.modalnoOknoGroups = {
       preklici: function() {
@@ -25,7 +30,8 @@
     vm.dodajSkupino = function(podatkiObrazca) {
       dancingthingsGroups.newGroup({
         groupName: podatkiObrazca.groupName,
-        about: podatkiObrazca.about
+        about: podatkiObrazca.about,
+        groupAdmin: vm.trenutniUporabnik.username
       }).then(
         function success(odgovor) {
           vm.modalnoOknoGroups.zapri(odgovor.data);
@@ -36,7 +42,7 @@
       );
     };
   }
-  groupModalnoOkno.$inject = ['$uibModalInstance', 'dancingthingsGroups'];
+  groupModalnoOkno.$inject = ['$location', '$uibModalInstance', 'dancingthingsGroups', 'avtentikacija'];
 
   /* global angular */
   angular

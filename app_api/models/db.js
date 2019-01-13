@@ -53,6 +53,7 @@ function getDbUri() {
 require('./users');
 require('./posts');
 require('./groups');
+require('./prijavaUsers')
 
 function dropUsers() {
   return User.remove({});

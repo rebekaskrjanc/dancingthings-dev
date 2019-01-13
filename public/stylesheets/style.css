@@ -137,15 +137,25 @@ header .form-inline {
 	padding:0;
 }
 
-.photos li{
-	list-style: none;
-	float:left;
-	margin:5px;
-	width:23%;
-}
-
 .photos img{
 	width:100%;
+}
+
+.vrsta{
+	display: flex;
+    justify-content: center;
+}
+#myButton1 {
+	position: absolute;
+	margin-right: -20%;
+	top: 50%;
+	left: 30.5%;
+}
+#myButton2 {
+	position: absolute;
+	margin-right: -100%;
+	top: 50%;
+	left: 64.5%;
 }
 
 footer{
@@ -155,7 +165,7 @@ footer{
 	font-weight: bold;
 	text-align: center;
 	padding-top:40px;
-	margin-top:30px;
+	margin-top:0px;
 	border-top:7px solid rgba(158,97,123,1);
 }
 

@@ -1,3 +1,4 @@
+require('dotenv').load();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -12,16 +13,25 @@ var zdruzeno = uglifyJs.minify({
   'homepage.krmilnik.js': fs.readFileSync('app_client/homepage/homepage.krmilnik.js', 'utf-8'),
   'groups.krmilnik.js': fs.readFileSync('app_client/groups/groups.krmilnik.js', 'utf-8'),
   'members.krmilnik.js': fs.readFileSync('app_client/members/members.krmilnik.js', 'utf-8'),
-  //'signup.krmilnik.js': fs.readFileSync('app_client/signup/signup.krmilnik.js', 'utf-8'),
+  'registracija.krmilnik.js': fs.readFileSync('app_client/avtentikacija/registracija/registracija.krmilnik.js', 'utf-8'),
+  'prijava.krmilnik.js': fs.readFileSync('app_client/avtentikacija/prijava/prijava.krmilnik.js', 'utf-8'),
+  'myprofile.krmilnik.js': fs.readFileSync('app_client/myprofile/myprofile.krmilnik.js', 'utf-8'),
   'komentarModalnoOkno.krmilnik.js': fs.readFileSync('app_client/komentarModalnoOkno/komentarModalnoOkno.krmilnik.js', 'utf-8'),
   'groupModalnoOkno.krmilnik.js': fs.readFileSync('app_client/groupModalnoOkno/groupModalnoOkno.krmilnik.js', 'utf-8'),
+  'editGroupModalnoOkno.krmilnik.js': fs.readFileSync('app_client/editGroupModalnoOkno/editGroupModalnoOkno.krmilnik.js', 'utf-8'),
+  'editProfileModalnoOkno.krmilnik.js': fs.readFileSync('app_client/editProfileModalnoOkno/editProfileModalnoOkno.krmilnik.js', 'utf-8'),
+  'postModalnoOkno.krmilnik.js': fs.readFileSync('app_client/postModalnoOkno/postModalnoOkno.krmilnik.js', 'utf-8'),
   'dancingthingsPodatki.storitev.js': fs.readFileSync('app_client/skupno/storitve/dancingthingsPodatki.storitev.js', 'utf-8'),
   'dancingthingsGroups.storitev.js': fs.readFileSync('app_client/skupno/storitve/dancingthingsGroups.storitev.js', 'utf-8'),
   'dancingthingsMembers.storitev.js': fs.readFileSync('app_client/skupno/storitve/dancingthingsMembers.storitev.js', 'utf-8'),
+  'avtentikacija.storitev.js': fs.readFileSync('app_client/skupno/storitve/avtentikacija.storitev.js', 'utf-8'),
   'dodajHtmlPrehodVNovoVrstico.filter.js': fs.readFileSync('app_client/skupno/filtri/dodajHtmlPrehodVNovoVrstico.filter.js', 'utf-8'),
   'noga.direktiva.js': fs.readFileSync('app_client/skupno/direktive/noga/noga.direktiva.js', 'utf-8'),
   'navigacija.direktiva.js': fs.readFileSync('app_client/skupno/direktive/navigacija/navigacija.direktiva.js', 'utf-8'),
-  'glava.direktiva.js': fs.readFileSync('app_client/skupno/direktive/glava/glava.direktiva.js', 'utf-8')
+  'navigacija.krmilnik.js': fs.readFileSync('app_client/skupno/direktive/navigacija/navigacija.krmilnik.js', 'utf-8'),
+  'glava.direktiva.js': fs.readFileSync('app_client/skupno/direktive/glava/glava.direktiva.js', 'utf-8'),
+  'signout.direktiva.js': fs.readFileSync('app_client/skupno/direktive/signout/signout.direktiva.js', 'utf-8'),
+  'signout.krmilnik.js': fs.readFileSync('app_client/skupno/direktive/signout/signout.krmilnik.js', 'utf-8')
 });
 
 fs.writeFile('public/angular/dancingthings.min.js', zdruzeno.code, function(napaka) {
@@ -31,7 +41,10 @@ fs.writeFile('public/angular/dancingthings.min.js', zdruzeno.code, function(napa
     console.log('Skripta je zgenerirana in shranjena v "dancingthings.min.js".');
 });
 
+var passport = require('passport');
+
 require('./app_api/models/db');
+require('./app_api/konfiguracija/passport');
 
 //var indexRouter = require('./app_server/routes/index');
 var indexApi = require('./app_api/routes/index');
@@ -50,6 +63,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'app_client')));
+app.use(passport.initialize());
 
 
 //app.use('/', indexRouter);
@@ -72,6 +86,16 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// Obvladovanje napak zaradi avtentikacije
+app.use(function(err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401);
+    res.json({
+      "sporočilo": err.name + ": " + err.message
+    });
+  }
 });
 
 

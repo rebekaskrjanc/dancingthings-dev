@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var User = mongoose.model('User');
+var User = mongoose.model('prijavaUser');
 
 var vrniJsonOdgovor = function(res, status, data) {
   res.status(status);
@@ -49,9 +49,8 @@ module.exports.getUser = function(req, res){
 };
 
 module.exports.updateUser = function(req, res) {
-  
   if(req.params && req.params.userId) {
-    if(req.body.username || req.body.posts) {
+    if(req.body.posts) {
       vrniJsonOdgovor(res, 400, { 
         "sporočilo": "Attribute is not updatable."
       });
@@ -61,7 +60,7 @@ module.exports.updateUser = function(req, res) {
           { _id: mongoose.Types.ObjectId(req.params.userId)},
           { $set: req.body}
         ).then(function(newRes){
-          vrniJsonOdgovor(res, 200, null);
+          vrniJsonOdgovor(res, 200, req.body);
         }).catch(function(error){
           vrniJsonOdgovor(res, 500, error);
         });
