@@ -21,6 +21,7 @@
       dancingthingsPodatki.vsebinaObjave().then(
         function success(odgovor) {
           vm.objavePredFiltrom=odgovor.data;
+          vm.objavePredFiltrom.reverse();
           l=vm.objavePredFiltrom.length;
           while(l>10) {
             l-=10;
