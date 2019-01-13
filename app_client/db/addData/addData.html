@@ -1,0 +1,32 @@
+<h4> ADD SOME USERS</h4>
+<form action="/signup" method="POST">
+  <div class="form-group">
+    <input class="form-control" type="text" name="username" placeholder="Username" value="Dancer1"/>
+    <input class="form-control" type="text" name="firstname" placeholder="Name" value="Metka"/>
+    <input class="form-control" type="text" name="email" placeholder="Email" value="email@email.com"/>
+    <input class="form-control" type="password" name="password" placeholder="Password" value="geslo"/>
+    <input class="form-control" type="password" name="passwordRetype" placeholder="Retype password" value="geslo"/>
+    <input class="form-control" type="text" name="state" placeholder="State" value="Michigan"/>
+    <input class="form-control" type="text" name="city" placeholder="City" value="Detroit"/>
+    <input class="form-control" type="text" name="gender" placeholder="Gender" value="Female"/>
+    <input class="form-control" type="text" name="dance" placeholder="Dance" value="ballet"/>
+    <input class="btn btn-default" type="submit" name="signup-button" value="Add User"/>
+  </div>
+</form>
+<br>
+<h4> ADD SOME GROUPS</h4>
+<form action="/newgroup" method="POST">
+    <div class="form-group">
+        <label for="formGroupExampleInput">Group name</label>
+        <input class="form-control" id="formGroupNameInput" name="groupName" type="text" placeholder="Name input" value="group1"/>
+    </div>
+<br>
+<button class="btn btn-default" type="submit">Create a group</button>
+</form>
+<h4> ADD SOME POSTS</h4>
+<form action="/newpost/undefined" method="POST">
+    <div class="form-group">
+        <textarea class="form-control" name="vsebinaObjave" placeholder="Write on the wall"></textarea>
+    </div>
+    <button class="btn btn-default" type="submit">Submit</button>
+</form>

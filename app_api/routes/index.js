@@ -12,6 +12,7 @@ var ctrlPosts = require('../controllers/posts');
 var ctrlComments = require('../controllers/comments');
 var ctrlGroups = require('../controllers/groups');
 var ctrlAvtentikacija = require('../controllers/avtentikacija');
+var ctrldeleteDB = require('../controllers/deleteDB');
 
 // USERS routes.
 router.get('/users', // get all users
@@ -73,5 +74,6 @@ router.post('/groups', avtentikacija,
 router.delete('/groups/:groupId', 
   ctrlGroups.deleteGroup);
 
+router.get('/deleteUserDB', ctrldeleteDB.deleteUserDB);
 
 module.exports = router;

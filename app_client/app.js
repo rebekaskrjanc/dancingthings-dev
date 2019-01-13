@@ -44,7 +44,7 @@
       })
       .when('/db', {
         templateUrl: '/db/db.html',
-        //controller: 'registracijaCtrl',
+        controller: 'dbCtrl',
         controllerAs: 'vm'
       })
       .otherwise({redirecTo: '/'});

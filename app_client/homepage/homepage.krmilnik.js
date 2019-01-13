@@ -5,6 +5,10 @@
     vm.prvotnaStran = $location.path();
     vm.trenutniUporabnik = avtentikacija.trenutniUporabnik();
     console.log(vm.trenutniUporabnik);
+    vm.pagination = {
+      search: '',
+      page: 0
+    }
     
     vm.pridobiPodatke = function() {
       vm.sporocilo = "Iščem bližnje lokacije.";
@@ -134,6 +138,18 @@
     };
 
     vm.pridobiSkupine();
+
+    vm.o=vm.objave+'';
+    vm.displayItems = vm.o.slice(0, 3);
+  
+    vm.pageChanged = function() {
+      var startPos = (vm.page - 1) * 3;
+      //$scope.displayItems = $scope.totalItems.slice(startPos, startPos + 3);
+      console.log(vm.page);
+      return vm;
+    }
+
+
     return vm;
   }
   homepageCtrl.$inject = ['$scope', '$location', '$uibModal', 'dancingthingsPodatki', 'avtentikacija', 'dancingthingsMembers', 'dancingthingsGroups'];
