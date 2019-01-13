@@ -3,7 +3,7 @@
 </header>
 <navigacija></navigacija>
 <div class="container">
-  <div class="col-xs-12 col-sm-8">
+  <div ng-show="vm.jePrijavljen" class="col-xs-12 col-sm-8">
     <label for="filter">Filtriranje Posts</label>
     <input id="filter" type="text" name="filter" ng-model="filterRezultatov"></div>
 	<section>
@@ -91,7 +91,7 @@
                   <li ng-show="vm.jePrijavljen" ng-repeat="user in vm.users"><a class="thumbnail" href="#"><img src="images/user-default.jpg"></a><div id="usernames" class="text-center">{{user.username}}</div></li>
                 </ul>
                 <div class="clearfix"></div>
-                <a class="btn btn-primary" href="/members">View All Members</a>
+                <a ng if="vm.users.length>0" ng-show="vm.jePrijavljen" class="btn btn-primary" href="/members">View All Members</a>
               </div>
             </div>
 
@@ -111,7 +111,7 @@
                   </div>
                   <div class="clearfix"></div>
                   </div> 
-                <a class="btn btn-primary" href="/groups">View All Groups</a>
+                <a ng-show="vm.jePrijavljen" class="btn btn-primary" href="/groups">View All Groups</a>
               </div>
             </div>
           </div>

@@ -4,7 +4,10 @@
 <navigacija></navigacija>
 <section>
   <div class="container">
-    <div class="row">
+    <h1 ng-hide="vm.jePrijavljen" class="page-header">My Profile</h1>
+    <p ng-hide="vm.jePrijavljen">You have to log in first</p>
+    <a ng-hide="vm.jePrijavljen" href="/prijava?stran={{ vm.prvotnaStran }}" class="btn btn-default">Log in</a>
+    <div ng-show="vm.jePrijavljen" sclass="row">
       <div class="col-md-8">
         <div class="profile">
           <h1 class="page-header">{{ vm.trenutniUporabnik.username }}</h1>
