@@ -23,7 +23,7 @@
     };
     vm.pridobiUporabnike();
 
-    vm.editProfileUI = function(id, name) {
+    /*vm.editProfileUI = function(id, name) {
       console.log("bemts",id);
       var primerekModalnegaOknaEdit = $uibModal.open({
         templateUrl: '/editProfileModalnoOkno/editProfileModalnoOkno.html',
@@ -51,6 +51,7 @@
           // Ulovi dogodek in ne naredi ničesar
         });
     };
+    */
     return vm;
   }
   

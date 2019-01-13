@@ -62,7 +62,7 @@ module.exports.createPost = function(req, res) {
 
 module.exports.updatePost = function(req, res) {
   if(req.params && req.params.postId) {
-    if(req.body.comments|| req.body.createdAt) {
+    if(req.body.createdAt) {
       vrniJsonOdgovor(res, 400, { 
         "sporočilo": "Attribute is not updatable."
       });
@@ -131,3 +131,4 @@ var vrniAvtorja = function(zahteva, odgovor, povratniKlic) {
     return;
   }
 };
+

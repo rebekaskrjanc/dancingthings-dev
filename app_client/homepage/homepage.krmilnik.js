@@ -1,17 +1,23 @@
 (function() {
-  function homepageCtrl($scope, $location, $uibModal, dancingthingsPodatki, avtentikacija) {
+  function homepageCtrl($scope, $location, $uibModal, dancingthingsPodatki, avtentikacija, dancingthingsMembers, dancingthingsGroups) {
   	var vm = this;
     vm.jePrijavljen = avtentikacija.jePrijavljen();
     vm.prvotnaStran = $location.path();
     vm.trenutniUporabnik = avtentikacija.trenutniUporabnik();
-
+    
     vm.pridobiPodatke = function() {
       vm.sporocilo = "Iščem bližnje lokacije.";
 
       dancingthingsPodatki.vsebinaObjave().then(
         function success(odgovor) {
           vm.objave=odgovor.data;
-          
+          var h;
+          for (h=0; h<vm.objave.length; h++) {
+            coms=vm.objave[h].comments+'';
+            coms=coms.split(',');
+            vm.objave[h].comments=coms;
+          }
+          vm.objave.comments+'';
         }, function error(odgovor) {
           vm.sporocilo = "Prišlo je do napake!";
           console.log(odgovor.e);
@@ -62,11 +68,74 @@
           console.log("neuspešno", odgovor);
         }
       );
-
     }
+
+    vm.novKomentar = function(id, com, txt, author) {
+      var primerekModalnegaOkna = $uibModal.open({
+        templateUrl: '/commentModalnoOkno/commentModalnoOkno.html',
+        controller: 'commentModalnoOkno',
+        controllerAs: 'vm',
+        resolve: {
+          podrobnostiKom: function() {
+            return {
+              idObjave: id,
+              komentarji: com,
+              vsebina: txt,
+              author: author
+            };
+          }
+        }
+      });
+      primerekModalnegaOkna.result.then(function(podatki) {
+        c=podatki.comments.split(",");
+        if (typeof podatki != 'undefined'){
+          var i;
+          var j;
+          for (i = 0; i < vm.objave.length; i++) { 
+            //coms=vm.objave[i].comments+'';
+            //comss=coms.split(",");
+            //console.log("C",comss);
+            if (vm.objave[i]._id==id)
+              vm.objave[i].comments=c;
+              //console.log("po foru",vm.objave[i].comments);
+          }
+          //vm.pridobiPodatke();
+        }
+      }, function(napaka) {
+        // Ulovi dogodek in ne naredi ničesar
+      });
+    }
+    vm.pridobiUporabnike = function() {
+      dancingthingsMembers.allMembers().then(
+        function success(odgovor) {
+          vm.users=odgovor.data;
+          
+        }, function error(odgovor) {
+          vm.sporocilo = "Prišlo je do napake!";
+          console.log(odgovor.e);
+        }
+      );
+    };
+
+    vm.pridobiUporabnike();
+
+    vm.pridobiSkupine = function() {
+
+      dancingthingsGroups.allGroups().then(
+        function success(odgovor) {
+          vm.groups=odgovor.data;
+          
+        }, function error(odgovor) {
+          vm.sporocilo = "Prišlo je do napake!";
+          console.log(odgovor.e);
+        }
+      );
+    };
+
+    vm.pridobiSkupine();
     return vm;
   }
-  homepageCtrl.$inject = ['$scope', '$location', '$uibModal', 'dancingthingsPodatki', 'avtentikacija'];
+  homepageCtrl.$inject = ['$scope', '$location', '$uibModal', 'dancingthingsPodatki', 'avtentikacija', 'dancingthingsMembers', 'dancingthingsGroups'];
 
   /* global angular */
   angular

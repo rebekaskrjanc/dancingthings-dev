@@ -51,6 +51,8 @@ router.post('/posts',
 router.delete('/posts/:postId',
   ctrlPosts.deletePost);  
 
+
+
 // COMMENTS routes
 router.post('/posts/:postId/comments',
   ctrlComments.createComment);
@@ -70,5 +72,6 @@ router.post('/groups', avtentikacija,
 
 router.delete('/groups/:groupId', 
   ctrlGroups.deleteGroup);
+
 
 module.exports = router;

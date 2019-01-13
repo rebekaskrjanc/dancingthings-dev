@@ -1,12 +1,12 @@
 (function() {
-  function membersCtrl($scope, $location, $uibModal, dancingthingsMembers, avtentikacija) {
+  function membersCtrl($scope, $location, $uibModal, dancingthingsMembers, dancingthingsPodatki, avtentikacija) {
   	var vm = this;
     vm.jePrijavljen = avtentikacija.jePrijavljen();
     vm.prvotnaStran = $location.path();
     vm.id=0;
     vm.name='';
+    vm.nalaganje = "Loading posts."
     vm.trenutniUporabnik = avtentikacija.trenutniUporabnik();
-    console.log(vm.trenutniUporabnik);
 
     vm.glavaStrani = {
     
@@ -27,6 +27,27 @@
     };
 
     vm.pridobiUporabnike();
+
+    vm.pridobiPodatke = function() {
+      vm.sporocilo = "Iščem bližnje lokacije.";
+
+      dancingthingsPodatki.vsebinaObjave().then(
+        function success(odgovor) {
+          vm.objave=odgovor.data;
+          var h;
+          for (h=0; h<vm.objave.length; h++) {
+            coms=vm.objave[h].comments+'';
+            coms=coms.split(',');
+            vm.objave[h].comments=coms;
+          }
+          vm.objave.comments+'';
+        }, function error(odgovor) {
+          vm.sporocilo = "Prišlo je do napake!";
+          console.log(odgovor.e);
+        }
+      );
+    };
+    vm.pridobiPodatke();
 
     vm.editProfileUI = function(u, v) {
       vm.name=v;
@@ -66,7 +87,7 @@
     };
     return vm;
   }
-  membersCtrl.$inject = ['$scope', '$location', '$uibModal', 'dancingthingsMembers', 'avtentikacija'];
+  membersCtrl.$inject = ['$scope', '$location', '$uibModal', 'dancingthingsMembers', 'dancingthingsPodatki', 'avtentikacija'];
 
   /* global angular */
   angular

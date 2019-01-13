@@ -33,22 +33,22 @@
       };
     }
 
-    vm.posiljanjePodatkov = function(id) {
+    vm.posiljanjePodatkov = function(id, author) {
       vm.napakaNaObrazcu = "";
       if (!vm.podatkiObrazca.text) {
         vm.napakaNaObrazcu = "Prosim, izpolnite vsaj eno vnosno polje!";
         return false;
       } else {
-        vm.urediObjavo(vm.podatkiObrazca, id);
+        vm.urediObjavo(vm.podatkiObrazca, id, author);
         
       }
     };
 
-    vm.urediObjavo = function(podatkiObrazca, id) {
+    vm.urediObjavo = function(podatkiObrazca, id, author) {
       console.log("log",id, podatkiObrazca);
       dancingthingsPodatki.editPost(id, {
         text: podatkiObrazca.text,
-        postAuthor: vm.trenutniUporabnik.username
+        postAuthor: author
       }).then(
         function success(odgovor) {
           vm.modalnoOknoPost.zapri(odgovor.data);

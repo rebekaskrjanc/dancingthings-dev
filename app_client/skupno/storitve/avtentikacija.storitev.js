@@ -45,7 +45,6 @@
       if (jePrijavljen()) {
         var zeton = vrniZeton();
         var koristnaVsebina = JSON.parse(b64Utf8(zeton.split('.')[1]));
-        console.log("koristna vsebin",koristnaVsebina);
         return {
           email: koristnaVsebina.email,
           username: koristnaVsebina.username,

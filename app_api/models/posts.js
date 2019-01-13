@@ -2,14 +2,14 @@
 var mongoose = require('mongoose');
 
 var commentSchema = new mongoose.Schema({
-  commentAuthor: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  commentAuthor: String,
   commentText: {type: String, required: true},
 });
 
 var postSchema = new mongoose.Schema({
   text: {type: String, required: true},
   postAuthor: String,
-  comments: [commentSchema],
+  comments: [String],
   createdAt: {type: Date, "default": Date.now}
 });
 

@@ -4,6 +4,9 @@
 <navigacija></navigacija>
 <section>
       <div class="container">
+        <div class="col-xs-12 col-sm-8">
+        <label for="filter">Filter Groups</label>
+        <input id="filter" type="text" name="filter" ng-model="filterRezultatov"></div>
         <div class="row">
           <div class="col-md-8">
             <div class="groups">
@@ -14,13 +17,13 @@
                 <p ng-hide="vm.jePrijavljen">You have to log in first</p>
                 <a ng-hide="vm.jePrijavljen" href="/prijava?stran={{ vm.prvotnaStran }}" class="btn btn-default">Log in</a>
               </div>
-              <div><p>{{vm.groups[2]}}</p></div>
-              <div class="group-item" ng-repeat="group in vm.groups">
+              <div class="group-item" ng-repeat="group in vm.groups | filter: filterRezultatov">
                 <img src="images/group.png">
                 <h4><a href="#">{{ group.groupName }}</a></h4>
                 <p>Admin: {{ group.groupAdmin }}</p>
                 <p>{{ group.about }}</p>
                 <p ng-if="group.groupAdmin==vm.trenutniUporabnik.username"><a ng-click="vm.editGroupUI(group._id, group.groupName)" class="btn btn-default">Edit Group</a></p>
+                <p ng-if="group.groupAdmin==admin"><a ng-click="vm.editGroupUI(group._id, group.groupName)" class="btn btn-default">Edit Group</a></p>
               </div>
             </div>
             <p><a ng-show="vm.jePrijavljen" ng-click="vm.groupUI()" class="btn btn-success">Create Group</a></p>

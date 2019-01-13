@@ -100,6 +100,11 @@ header .form-inline {
 	width:55px;
 }
 
+#usernames {
+	display:inline;
+	float:left;
+}
+
 .groups img{
 	width:80px;
 	float:left;
@@ -165,7 +170,7 @@ footer{
 	font-weight: bold;
 	text-align: center;
 	padding-top:40px;
-	margin-top:0px;
+	margin-top:50px;
 	border-top:7px solid rgba(158,97,123,1);
 }
 

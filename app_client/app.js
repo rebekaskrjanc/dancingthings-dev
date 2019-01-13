@@ -42,6 +42,11 @@
         //controller: 'registracijaCtrl',
         controllerAs: 'vm'
       })
+      .when('/db', {
+        templateUrl: '/db/db.html',
+        //controller: 'registracijaCtrl',
+        controllerAs: 'vm'
+      })
       .otherwise({redirecTo: '/'});
     $locationProvider.html5Mode(true);
       

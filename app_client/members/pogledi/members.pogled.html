@@ -4,6 +4,9 @@
 <navigacija></navigacija>
 <section>
   <div class="container">
+    <div class="col-xs-12 col-sm-8">
+    <label for="filter">Filter Members</label>
+    <input id="filter" type="text" name="filter" ng-model="filterRezultatov"></div>
     <div class="row">
       <div class="col-md-8">
         <div class="members">
@@ -11,7 +14,7 @@
           <div ng-show="vm.jePrijavljen" ng-if="vm.users.length === 0">
             <p>Hmm... it seems like Dancing Things has no members yet.</p>
           </div>
-          <div ng-show="vm.jePrijavljen" class="row member-row" ng-repeat="user in vm.users">
+          <div ng-show="vm.jePrijavljen" class="row member-row" ng-repeat="user in vm.users | filter: filterRezultatov">
             <div class="col-md-3">
               <img src="images/user-default.jpg" class="img-thumbnail">
               <div class="text-center">{{ user.username }}</div>

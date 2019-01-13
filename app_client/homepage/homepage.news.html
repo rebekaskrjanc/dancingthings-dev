@@ -3,6 +3,9 @@
 </header>
 <navigacija></navigacija>
 <div class="container">
+  <div class="col-xs-12 col-sm-8">
+    <label for="filter">Filtriranje Posts</label>
+    <input id="filter" type="text" name="filter" ng-model="filterRezultatov"></div>
 	<section>
     <div class="container">
       <div class="row">
@@ -30,7 +33,7 @@
           <div ng-if="vm.objave.length === 0">
             <p ng-show="vm.jePrijavljen">Hmm... it seems like there are no posts yet.</p>
           </div>
-          <div ng-show="vm.jePrijavljen" class="panel panel-default post" ng-repeat="objava in vm.objave">
+          <div ng-show="vm.jePrijavljen" class="panel panel-default post" ng-repeat="objava in vm.objave | filter: filterRezultatov">
             <div class="panel-body">
               <div class="row">
                 <div class="col-sm-2">
@@ -52,7 +55,8 @@
                         <input type="text" class="form-control" id="exampleInputName2" placeholder="Enter Comment"> 
                       </div> -->
                       <p ng-if="objava.postAuthor==vm.trenutniUporabnik.username"><a ng-click="vm.postUI(objava._id, objava.text)" class="btn btn-default">Edit Post</a></p>
-                      <button type="submit" class="btn btn-default" ng-click="vm.prikaziPojavnoOknoObrazca()">Add Comment</button>
+                      <p ng-if="objava.postAuthor==admin"><a ng-click="vm.postUI(objava._id, objava.text)" class="btn btn-default">Edit Post</a></p>
+                      <button type="submit" class="btn btn-default" ng-click="vm.novKomentar(objava._id, objava.comments, objava.text, objava.postAuthor)">Add Comment</button>
                     </form>
                   </div><!-- comment form end -->
                   <div class="clearfix"></div>
@@ -75,8 +79,38 @@
             <a ng-hide="vm.jePrijavljen" href="/prijava?stran={{ vm.prvotnaStran }}" class="btn btn-default">Log in</a>
           </div>
         </div>
+        <div class="col-md-4">
+            <div class="panel panel-default friends">
+              <div class="panel-heading">
+                <h3 class="panel-title">My Friends</h3>
+              </div>
+              <div class="panel-body">
+                  <li ng-show="vm.jePrijavljen" ng-repeat="user in vm.users"><a class="thumbnail" href="#"><img src="images/user-default.jpg"></a><div id="usernames" class="text-center">{{user.username}}</div></li>
+                </ul>
+                <div class="clearfix"></div>
+                <a class="btn btn-primary" href="/members">View All Members</a>
+              </div>
+            </div>
+
+            <div class="panel panel-default groups">
+              <div class="panel-heading">
+                <h3 class="panel-title">Latest Groups</h3>
+              </div>
+              <div class="panel-body">
+                <div ng-repeat="group in vm.groups">
+                  <div class="group-item">
+                    <img src="images/group.png">
+                    <h4><a href="#">{{group.groupName}}</a></h4>
+                    <p>{{group.about}}</p>
+                  </div>
+                  <div class="clearfix"></div>
+                  </div> 
+                <a class="btn btn-primary" href="/groups">View All Groups</a>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   </section>
-	<noga></noga>
 </div>
+<noga></noga>
