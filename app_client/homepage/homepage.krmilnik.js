@@ -89,7 +89,7 @@
               vm.objave[i].text= podatki.text,
               vm.objave[i].postAuthor= podatki.postAuthor
           }
-          vm.pridobiPodatke();
+          vm.pridobiPodatke(vm.currPage);
         }, function(napaka) {
           // Ulovi dogodek in ne naredi ničesar
         });
@@ -103,7 +103,7 @@
       }).then(
         function success(odgovor) {
           console.log("uspešno");
-          vm.pridobiPodatke();
+          vm.pridobiPodatke(vm.currPage);
         },
         function error(odgovor) {
           console.log("neuspešno", odgovor);
