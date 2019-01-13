@@ -18,7 +18,10 @@
 
     vm.prvotnaStran = $location.search().stran || '/';
 
-    vm.posiljanjePodatkov = function() {
+    vm.posiljanjePodatkov = function(d) {
+      console.log(d);
+      vm.prijavniPodatki.dance=d;
+      console.log("prijavni podatki",vm.prijavniPodatki);
       vm.napakaNaObrazcu = "";
       if (!vm.prijavniPodatki.username || !vm.prijavniPodatki.email || !vm.prijavniPodatki.password || !vm.prijavniPodatki.password2 || 
         !vm.prijavniPodatki.city || !vm.prijavniPodatki.state || !vm.prijavniPodatki.dance || !vm.prijavniPodatki.firstname) {
@@ -29,10 +32,11 @@
       }
   };
 
-  vm.izvediRegistracijo = function() {
+  vm.izvediRegistracijo = function(podatki) {
+    console.log("izvajamR",podatki);
     vm.napakaNaObrazcu = "";
     avtentikacija
-      .registracija(vm.prijavniPodatki)
+      .registracija(podatki)
       .then(
         function(success) {
           $location.search('stran', null);

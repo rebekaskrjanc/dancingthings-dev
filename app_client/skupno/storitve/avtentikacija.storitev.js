@@ -14,8 +14,10 @@
     };
 
     var registracija = function(uporabnik) {
+      console.log("storitev",uporabnik);
       return $http.post('/api/registracija', uporabnik).then(
         function success(odgovor) {
+          console.log("po apiju",odgovor.data);
           shraniZeton(odgovor.data.zeton);
         });
     };
@@ -42,6 +44,7 @@
     };
 
     var trenutniUporabnik = function() {
+      console.log("koristna vsebina",koristnaVsebina);
       if (jePrijavljen()) {
         var zeton = vrniZeton();
         var koristnaVsebina = JSON.parse(b64Utf8(zeton.split('.')[1]));

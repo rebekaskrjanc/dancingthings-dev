@@ -32,6 +32,10 @@ prijavaUserShema.methods.generirajJwt = function() {
     _id: this._id,
     email: this.email,
     username: this.username,
+    dance: this.dance,
+    city: this.city,
+    state: this.state,
+    firstname: this.firstname,
     datumPoteka: parseInt(datumPoteka.getTime() / 1000, 10)
   }, process.env.JWT_GESLO);
 };

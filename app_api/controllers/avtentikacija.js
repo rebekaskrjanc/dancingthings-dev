@@ -8,6 +8,7 @@ var vrniJsonOdgovor = function(odgovor, status, vsebina) {
 };
 
 module.exports.registracija = function(zahteva, odgovor) {
+  console.log("api scenke",zahteva.body);
   if (!zahteva.body.username || !zahteva.body.email || !zahteva.body.password || !zahteva.body.firstname || !zahteva.body.city || !zahteva.body.state || !zahteva.body.dance) {
     vrniJsonOdgovor(odgovor, 400, {
       "sporočilo": "Zahtevani so vsi podatki"

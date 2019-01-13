@@ -4,6 +4,7 @@
     vm.jePrijavljen = avtentikacija.jePrijavljen();
     vm.prvotnaStran = $location.path();
     vm.trenutniUporabnik = avtentikacija.trenutniUporabnik();
+    console.log(vm.trenutniUporabnik);
     
     vm.pridobiPodatke = function() {
       vm.sporocilo = "Iščem bližnje lokacije.";
