@@ -13,7 +13,8 @@
       firstname: "",
       city: "",
       state: "",
-      dance: ""
+      dance: "",
+      recaptchaResponse: ''
     };
 
     vm.prvotnaStran = $location.search().stran || '/';
@@ -27,6 +28,9 @@
         !vm.prijavniPodatki.city || !vm.prijavniPodatki.state || !vm.prijavniPodatki.dance || !vm.prijavniPodatki.firstname) {
         vm.napakaNaObrazcu = "Zahtevani so vsi podatki, prosim poskusite znova!";
         return false;
+      }  
+      else if(!vm.prijavniPodatki.recaptchaResponse){
+        vm.napakaNaObrazcu = "Potrdite da niste robot!";
       } else {
         vm.izvediRegistracijo(vm.prijavniPodatki);
       }
