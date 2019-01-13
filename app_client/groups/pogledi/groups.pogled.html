@@ -5,8 +5,11 @@
 <section>
       <div class="container">
         <div ng-show="vm.jePrijavljen" class="col-xs-12 col-sm-8">
-        <label for="filter">Filter Groups</label>
-        <input id="filter" type="text" name="filter" ng-model="filterRezultatov"></div>
+          <div ng-if="vm.groups.length !== 0">
+            <label for="filter">Filter Groups</label>
+            <input id="filter" type="text" name="filter" ng-model="filterRezultatov">
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-8">
             <div class="groups">
