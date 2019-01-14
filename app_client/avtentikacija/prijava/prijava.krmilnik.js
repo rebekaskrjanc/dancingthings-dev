@@ -30,7 +30,7 @@
         .then(
           function(success) {
             $location.search('stran', null);
-            $location.path(vm.prvotnaStran);
+          $location.path(vm.prvotnaStran);
           },
           function(napaka) {
             vm.napakaNaObrazcu = napaka.data.sporocilo;

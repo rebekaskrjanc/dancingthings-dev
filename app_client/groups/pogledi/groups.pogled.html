@@ -14,21 +14,21 @@
           <div class="col-md-8">
             <div class="groups">
               <h1 class="page-header">Groups</h1>
+              <p ng-hide="vm.jePrijavljen">You have to log in first</p>
+              <a ng-hide="vm.jePrijavljen" href="/prijava?stran={{ vm.prvotnaStran }}" class="btn btn-default">Log in</a>
               <div ng-if="vm.groups.length === 0">
                 <p ng-show="vm.jePrijavljen">Hmm... it seems like there are no groups yet. Do you want to create one?</p>
-                <p><a ng-show="vm.jePrijavljen" ng-click="vm.groupUI()" class="btn btn-success">Create Group</a></p>
-                <p ng-hide="vm.jePrijavljen">You have to log in first</p>
-                <a ng-hide="vm.jePrijavljen" href="/prijava?stran={{ vm.prvotnaStran }}" class="btn btn-default">Log in</a>
               </div>
-              <div class="group-item" ng-repeat="group in vm.groups | filter: filterRezultatov">
+              <div ng-show="vm.jePrijavljen" class="group-item" ng-repeat="group in vm.groups | filter: filterRezultatov">
                 <img src="images/group.png">
                 <h4><a href="#">{{ group.groupName }}</a></h4>
                 <p>Admin: {{ group.groupAdmin }}</p>
                 <p>{{ group.about }}</p>
                 <p ng-if="group.groupAdmin==vm.trenutniUporabnik.username"><a ng-click="vm.editGroupUI(group._id, group.groupName)" class="btn btn-default">Edit Group</a></p>
-                <p ng-if="group.groupAdmin==admin"><a ng-click="vm.editGroupUI(group._id, group.groupName)" class="btn btn-default">Edit Group</a></p>
+                <p ng-if="group.groupAdmin==admin"><a ng-click="vm.editGroupUI(group._id, group.groupName)" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Edit Group</a></p>
               </div>
             </div>
+            <p><a ng-show="vm.jePrijavljen" ng-click="vm.groupUI()" class="btn btn-success">Create Group</a></p>
           </div>
         </div>
       </div>

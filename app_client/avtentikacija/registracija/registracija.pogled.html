@@ -9,37 +9,30 @@
       <p class="lead">Ste že registrirani uporabnik? Prosim <a href="/prijava?stran={{ vm.prvotnaStran }}">prijavite</a> se.</p>
       <form ng-submit="vm.posiljanjePodatkov(vm.prijavniPodatki.dance)" autocomplete="off">
         <div role="alert" ng-show="vm.napakaNaObrazcu" class="alert alert-danger">{{ vm.napakaNaObrazcu }}</div>
+        <p class="mandatory">*All fields are mandatory*</p>
         <div class="form-group">
           <label for="firstname">Ime</label>
           <input type="text" class="form-control" id="firstname" placeholder="First name" ng-model="vm.prijavniPodatki.firstname">
         </div>
         <div class="form-group">
           <label for="username">Uporabniško ime</label>
-          <input ng-model="vm.prijavniPodatki.username" type="text" class="form-control" id="username" placeholder="Enter username">
+          <input ng-model="vm.prijavniPodatki.username" type="text" class="form-control" required="required" id="username" placeholder="Enter username">
         </div>
         <div class="form-group">
           <label for="email">Elektronski naslov</label>
-          <input ng-model="vm.prijavniPodatki.email" type="email" class="form-control" id="email" placeholder="Enter emai address">
+          <input ng-model="vm.prijavniPodatki.email" type="email" class="form-control" required="required" id="email" placeholder="Enter emai address">
         </div>
         <div class="form-group">
           <label for="password">Geslo</label>
-          <input ng-model="vm.prijavniPodatki.password" type="password" class="form-control" id="password" placeholder="Password">
+          <input ng-model="vm.prijavniPodatki.password" type="password" class="form-control" required="required" id="password" placeholder="Password">
         </div>
         <div class="form-group">
           <label for="password2">Ponovi geslo</label>
-          <input ng-model="vm.prijavniPodatki.password2" type="password" class="form-control" id="password2" placeholder="Retype password">
-        </div>
-        <div class="form-group">
-          <label for="city">Mesto</label>
-          <input ng-model="vm.prijavniPodatki.city" type="text" class="form-control" id="city" placeholder="City">
-        </div>
-        <div class="form-group">
-          <label for="state">State</label>
-          <input ng-model="vm.prijavniPodatki.state" type="text" class="form-control" id="state" placeholder="State">
+          <input ng-model="vm.prijavniPodatki.password2" type="password" class="form-control" required="required" id="password2" placeholder="Retype password">
         </div>
         <div class="form-group">
           <label for="dance">Ples</label>
-          <input ng-model="vm.prijavniPodatki.dance" type="text" class="form-control" id="dance" placeholder="Dance">
+          <input ng-model="vm.prijavniPodatki.dance" type="text" class="form-control" required="required" id="dance" placeholder="Dance">
         </div>
         <div class="recaptcha" 
              vc-recaptcha 

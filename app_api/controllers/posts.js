@@ -23,6 +23,12 @@ module.exports.getPosts = function(req, res) {
 
 module.exports.getPost = function(req, res) {
   if(req.params && req.params.postId) {
+    if (!(/^\w+$/.test(req.params.postId)) || Object.keys(req.query).length > 0) {
+      vrniJsonOdgovor(odgovor, 400, {
+        "sporočilo": "Napačna zahteva!"
+      });
+      return;
+    }
     Post
       .findById(req.params.postId)
       .exec(function(error, post){

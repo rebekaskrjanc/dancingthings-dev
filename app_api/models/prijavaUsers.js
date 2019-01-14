@@ -6,8 +6,6 @@ var prijavaUserShema = new mongoose.Schema({
   email: {type: String, unique: true, required: true},
   username: {type: String, required: true},
   firstname: {type: String, required: true},
-  city: {type: String, required: true},
-  state: {type: String, required: true},
   dance: {type: String, required: true},
 
   zgoscenaVrednost: String,
@@ -33,8 +31,6 @@ prijavaUserShema.methods.generirajJwt = function() {
     email: this.email,
     username: this.username,
     dance: this.dance,
-    city: this.city,
-    state: this.state,
     firstname: this.firstname,
     datumPoteka: parseInt(datumPoteka.getTime() / 1000, 10)
   }, process.env.JWT_GESLO);

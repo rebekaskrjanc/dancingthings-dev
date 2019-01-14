@@ -5,9 +5,11 @@
         <span aria-hidden="true">x</span><span class="sr-only">Zapri</span>
       </button>
       <h4 id="oznakaModalnegaOkna" class="modal-title">Edit existing group {{ vm.podrobnostiSkupine.groupName }}</h4>
+      <p class="mandatory">*All fields are mandatory*</p>
     </div>
     <div class="modal-body">
       <div role="alert" ng-show="vm.napakaNaObrazcu" class="alert alert-danger">{{ vm.napakaNaObrazcu }}</div>
+      <p class="mandatory">*All fields are mandatory*</p>
       <div class="form-group">
         <label for="groupName" class="col-xs-10 col-sm-2 control-label">Group name</label>
         <div class="col-xs-12 col-sm-10">
@@ -17,7 +19,7 @@
       <div class="form-group">
         <label for="about" class="col-sm-2 control-label">About</label>
         <div class="col-sm-10">
-          <textarea id="about" name="about" rows="5" ng-model="vm.podatkiObrazca.about" class="form-control"></textarea>
+          <textarea id="about" required="required" name="about" rows="5" ng-model="vm.podatkiObrazca.about" class="form-control"></textarea>
         </div>
       </div>
     </div>

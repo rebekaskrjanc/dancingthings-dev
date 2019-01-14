@@ -11,8 +11,6 @@
       email: "",
       password: "",
       firstname: "",
-      city: "",
-      state: "",
       dance: "",
       recaptchaResponse: ''
     };
@@ -25,13 +23,19 @@
       console.log("prijavni podatki",vm.prijavniPodatki);
       vm.napakaNaObrazcu = "";
       if (!vm.prijavniPodatki.username || !vm.prijavniPodatki.email || !vm.prijavniPodatki.password || !vm.prijavniPodatki.password2 || 
-        !vm.prijavniPodatki.city || !vm.prijavniPodatki.state || !vm.prijavniPodatki.dance || !vm.prijavniPodatki.firstname) {
-        vm.napakaNaObrazcu = "Zahtevani so vsi podatki, prosim poskusite znova!";
+        !vm.prijavniPodatki.dance || !vm.prijavniPodatki.firstname) {
+        vm.napakaNaObrazcu = "All fields are mandatory, please try again!";
         return false;
       }  
       else if(!vm.prijavniPodatki.recaptchaResponse){
-        vm.napakaNaObrazcu = "Potrdite da niste robot!";
-      } else {
+        vm.napakaNaObrazcu = "reCaptcha authentication failed!";
+      } else if(vm.prijavniPodatki.password!=vm.prijavniPodatki.password2){
+        vm.napakaNaObrazcu = "Passwords have to match!";
+      } else if(vm.prijavniPodatki.username.length<3){
+        vm.napakaNaObrazcu = "Username must be longer than 3 characters!";
+      }else if(vm.prijavniPodatki.password.length<5){
+        vm.napakaNaObrazcu = "Password must be longer than 5 characters!";
+      }else {
         vm.izvediRegistracijo(vm.prijavniPodatki);
       }
   };
